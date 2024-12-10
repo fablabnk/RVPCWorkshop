@@ -34,7 +34,7 @@ Arduino must be flashed with firmware from [BlueSyncLine arduino-ch32v003-swio](
     - connect arduino
     - in terminal check the name of arduino: `ls /dev/ | grep AMC` (should give sth like `ttyACM0`)
     - check whether the name of device (`ttyAMCx`) corresponds with the one in the `flash.sh` script located in the `project/dir`
-    - then `chmod 755 project/dir/flash.sh`
+    - then `chmod 755 flash.sh && ./flash.sh`
     - check whether flashin was succseefull by connecting to arduino using Arduino IDE and typing in serial monitor (115200 baudrate) `w` or `p` - it should return `!` or `+`
  - flash one of the prebuilt projects to the RVPC:
     - TBD
