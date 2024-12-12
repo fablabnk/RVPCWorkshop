@@ -1,5 +1,7 @@
 # FabLab|NK workshop for [OLIMEX RVPC](https://github.com/OLIMEX/RVPC) project 
 
+#### This repo includes submodules. To clone all at once use `git clone --recurse-submodules -j8 repolink`
+
 ### Workshop includes
  - soldering the rvpc
  - creating the flasher based on Arduino UNO
