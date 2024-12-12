@@ -1,6 +1,10 @@
 # FabLab|NK workshop for [OLIMEX RVPC](https://github.com/OLIMEX/RVPC) project 
 
-#### This repo includes submodules. To clone all at once use `git clone --recurse-submodules -j8 repolink`
+#### This repo contains submodules: 
+
+#### To clone all at once use `git clone --recurse-submodules -j8 repolink`
+
+#### To pull all changes including submodules use `git pull --recurse-submodules repolink`
 
 ### Workshop includes
  - soldering the rvpc
