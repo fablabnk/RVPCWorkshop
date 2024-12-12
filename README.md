@@ -31,8 +31,12 @@ As Arduino boards are easier to find and often times cheaper than olimex propria
 Arduino must be flashed with firmware from [BlueSyncLine arduino-ch32v003-swio](https://gitlab.com/BlueSyncLine/arduino-ch32v003-swio) project:
  - clone the project `git clone https://gitlab.com/BlueSyncLine/arduino-ch32v003-swio.git`
  - install required tools:
-    - `sudo apt-get install avrdude`
-    - `sudo apt-get install avr-gcc`
+    - linux:
+       - `sudo apt-get install avrdude`
+       - `sudo apt-get install avr-gcc`
+    - macos:
+       - `brew install avrdude`
+       - `brew install avr-gcc`
  - build the project:
     - `cd project/dir`
     - `make`
