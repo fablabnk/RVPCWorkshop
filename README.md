@@ -34,7 +34,7 @@ You will need a Raspberry Pi with pin headers. We used a (Pico 1)[https://www.ra
 - Connect a Pico GND pin to RVPC GND pin
 - Power RVPC as normal by providing 5V on barrel jack connector (e.g. USB to barrel jack converter)
 
-<img src="./Images/pico_programmer.jpg" width="50%" height="50%">
+<img src="./IMAGES/pico_programmer.jpg" width="50%" height="50%">
 
 # Flashing
 
