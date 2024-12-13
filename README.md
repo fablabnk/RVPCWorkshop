@@ -54,7 +54,7 @@ You will need a Raspberry Pi with pin headers. We used a (Pico 1)[https://www.ra
 - right click and choose 'open containing folder', then right click again in blank space and choose 'open in terminal'
 - power cycle the RVPC
 - power cycle the Pico
-- `gdb-multiarch -ex 'target extended-remote /dev/ttyACM0' -ex 'load' -ex 'detach' -ex 'quit' "firmware.elf"`
+- flash from the terminal using the command: `gdb-multiarch -ex 'target extended-remote /dev/ttyACM0' -ex 'load' -ex 'detach' -ex 'quit' "firmware.elf"`
 
 # Writing some display code
 
