@@ -44,9 +44,9 @@ You will need a Raspberry Pi with pin headers. We used a (Pico 1)[https://www.ra
 - check Pico is appearing on /dev/ttyACM0, if not adjust accordingly in ./flash.sh
 - install dependencies:
 `apt-get install build-essential libnewlib-dev gcc-riscv64-unknown-elf libusb-1.0-0-dev libudev-dev gdb-multiarch`
-- install Visual Studio Code as described (here)[https://code.visualstudio.com/docs/setup/linux]
-- install Platform IO extension for VS Code as described (here)[https://platformio.org/install/ide?install=vscode]
-- install CH32V-Platform as described (here)[https://github.com/Community-PIO-CH32V/ch32-pio-projects?tab=readme-ov-file#installing-the-ch32v-platform]
+- install Visual Studio Code as described [here](https://code.visualstudio.com/docs/setup/linux)
+- install Platform IO extension for VS Code as described [here](https://platformio.org/install/ide?install=vscode)
+- install CH32V-Platform as described [here](https://github.com/Community-PIO-CH32V/ch32-pio-projects?tab=readme-ov-file#installing-the-ch32v-platform)
 - clone this repo somewhere on your system i.e. `git clone https://github.com/fablabnk/RVPCWorkshop.git`
 - in VS Code, go to File -> Open Folder and navigate in the codebase to /RVPC/SOFTWARE/Demo-Tetris (or whichever example you prefer)
 - click PlatformIO icon (alien/ant head) and under Project Tasks -> RVPC -> General, click the Build task
