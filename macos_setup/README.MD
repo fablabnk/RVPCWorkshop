@@ -5,7 +5,7 @@
     ```
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     ```
- - Add homebrew to the path by adding in `~/.zschrc` and `~/.basch_profile` the following:
+ - Add homebrew to the path by adding to `~/.zschrc` and `~/.basch_profile` the following:
     ```
     export PATH="$PATH:/opt/homebrew/bin"
     ```
@@ -20,4 +20,9 @@
     brew install libusb
     brew autoremove
     brew install --cask gcc-arm-embedded
+    ```
+
+### After installing Platformio extension for VSCode you may add it to `~/.zschrc` and `~/.basch_profile` as well:
+    ```
+    export PATH="$PATH:$HOME/.platformio/penv/bin"
     ```
