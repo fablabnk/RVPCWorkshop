@@ -43,7 +43,7 @@ You will need a Raspberry Pi with pin headers. We used a (Pico 1)[https://www.ra
 - hold BOOTSEL whilst connecting Pico via USB to your PC
 - drag .uf2 firmware onto drive that appears, wait for reboot
 - check Pico is appearing on /dev/ttyACM0, if not adjust accordingly in ./flash.sh
-- install dependencies ([macos dependencies](./macos_setup/README.MD)):
+- install dependencies:
 `apt-get install build-essential libnewlib-dev gcc-riscv64-unknown-elf libusb-1.0-0-dev libudev-dev gdb-multiarch`
 - install Visual Studio Code as described [here](https://code.visualstudio.com/docs/setup/linux)
 - install Platform IO extension for VS Code as described [here](https://platformio.org/install/ide?install=vscode)
