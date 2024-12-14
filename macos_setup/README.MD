@@ -1,6 +1,14 @@
 ## Building and flashing projects on macose might require a couple of packages to be installed
 
  - Install xcode from appstore or xcode command line tools with from terminal:`xcode-select --install`
+ - Install homebrew:
+    ```
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    ```
+ - Add homebrew to the path by adding in `~/.zschrc` and `~/.basch_profile` the following:
+    ```
+    export PATH="$PATH:/opt/homebrew/bin"
+    ```
  - Check the following packages:
     ```
     Brew update
@@ -12,8 +20,4 @@
     brew install libusb
     brew autoremove
     brew install --cask gcc-arm-embedded
-    ```
- - Check whether brewed bins are in the PATH and/or updaate your `~/.zschrc` and `~/.basch_profile` with:
-    ```
-    export PATH="$PATH:/opt/homebrew/bin"
     ```
