@@ -38,7 +38,8 @@ You will need a Raspberry Pi with pin headers. We used a (Pico 1)[https://www.ra
 
 # Flashing
 
-- download picorvd .uf2 firmware here and unzip
+- download the picorvd .uf2 firmware from our repo [here](./PROGRAMMER/picorvd.uf2).
+- NOTE: the original firmware can be found in the Actions tab of the original picorvd repo [here](https://github.com/aappleby/picorvd/actions). Click on the first entry in the list (for example) and scroll to the bottom of the page. However, recently when I checked there it was marked as 'expired'
 - hold BOOTSEL whilst connecting Pico via USB to your PC
 - drag .uf2 firmware onto drive that appears, wait for reboot
 - check Pico is appearing on /dev/ttyACM0, if not adjust accordingly in ./flash.sh
