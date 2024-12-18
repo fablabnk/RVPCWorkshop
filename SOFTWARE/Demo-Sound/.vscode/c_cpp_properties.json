@@ -1,0 +1,59 @@
+//
+// !!! WARNING !!! AUTO-GENERATED FILE!
+// PLEASE DO NOT MODIFY IT AND USE "platformio.ini":
+// https://docs.platformio.org/page/projectconf/section_env_build.html#build-flags
+//
+{
+    "configurations": [
+        {
+            "name": "PlatformIO",
+            "includePath": [
+                "/Users/user/fablabnk/Demo-Sound/include",
+                "/Users/user/fablabnk/Demo-Sound/src",
+                "/Users/user/.platformio/packages/framework-wch-noneos-sdk/Core/ch32v00x",
+                "/Users/user/.platformio/packages/framework-wch-noneos-sdk/Peripheral/ch32v00x/inc",
+                "/Users/user/.platformio/packages/framework-wch-noneos-sdk/Peripheral/ch32v00x/src",
+                "/Users/user/.platformio/packages/framework-wch-noneos-sdk/Startup",
+                "/Users/user/.platformio/packages/framework-wch-noneos-sdk/System/ch32v00x",
+                "/Users/user/.platformio/packages/framework-wch-noneos-sdk/Debug/ch32v00x",
+                ""
+            ],
+            "browse": {
+                "limitSymbolsToIncludedHeaders": true,
+                "path": [
+                    "/Users/user/fablabnk/Demo-Sound/include",
+                    "/Users/user/fablabnk/Demo-Sound/src",
+                    "/Users/user/.platformio/packages/framework-wch-noneos-sdk/Core/ch32v00x",
+                    "/Users/user/.platformio/packages/framework-wch-noneos-sdk/Peripheral/ch32v00x/inc",
+                    "/Users/user/.platformio/packages/framework-wch-noneos-sdk/Peripheral/ch32v00x/src",
+                    "/Users/user/.platformio/packages/framework-wch-noneos-sdk/Startup",
+                    "/Users/user/.platformio/packages/framework-wch-noneos-sdk/System/ch32v00x",
+                    "/Users/user/.platformio/packages/framework-wch-noneos-sdk/Debug/ch32v00x",
+                    ""
+                ]
+            },
+            "defines": [
+                "PLATFORMIO=60116",
+                "CH32V003J4",
+                "CH32V00X",
+                "CH32V00x",
+                "CH32V003",
+                "SYSCLK_FREQ_48MHZ_HSI",
+                "__PIO_CPP_SUPPORT__",
+                ""
+            ],
+            "cStandard": "gnu99",
+            "cppStandard": "gnu++17",
+            "compilerPath": "/Users/user/.platformio/packages/toolchain-riscv/bin/riscv-none-embed-gcc",
+            "compilerArgs": [
+                "-msmall-data-limit=0",
+                "-msave-restore",
+                "-march=rv32ecxw",
+                "-mabi=ilp32e",
+                "-g3",
+                "-O0"
+            ]
+        }
+    ],
+    "version": 4
+}

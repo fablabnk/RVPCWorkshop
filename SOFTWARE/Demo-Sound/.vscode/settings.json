@@ -1,0 +1,18 @@
+{
+    "files.associations": {
+        "Buzzer.hpp": "cpp",
+        "Charset.hpp": "cpp",
+        "Delay.hpp": "cpp",
+        "Keyboard.hpp": "cpp",
+        "loop.cpp": "cpp",
+        "loop.h": "c",
+        "main.cpp": "cpp",
+        "Sound.hpp": "cpp",
+        "misc.hpp": "cpp",
+        "ch32v00x.h": "c",
+        "*.tcc": "cpp",
+        "string": "cpp",
+        "string_view": "cpp",
+        "ch32v00x_rcc.h": "c"
+    }
+}
