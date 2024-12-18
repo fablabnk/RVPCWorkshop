@@ -44,7 +44,7 @@ You will need a Raspberry Pi with pin headers. We used a (Pico 1)[https://www.ra
 - drag .uf2 firmware onto drive that appears, wait for reboot
 - check Pico is appearing on /dev/ttyACM0, if not adjust accordingly in ./flash.sh
 - install dependencies:
-`apt-get install build-essential libnewlib-dev gcc-riscv64-unknown-elf libusb-1.0-0-dev libudev-dev gdb-multiarch`
+`sudo apt-get install build-essential libnewlib-dev gcc-riscv64-unknown-elf libusb-1.0-0-dev libudev-dev gdb-multiarch`
 - install python-venv module for platformio extension: `sudo apt install python3-venv`
 - install Visual Studio Code as described [here](https://code.visualstudio.com/docs/setup/linux)
 - install Platform IO extension for VS Code as described [here](https://platformio.org/install/ide?install=vscode)
@@ -57,6 +57,22 @@ You will need a Raspberry Pi with pin headers. We used a (Pico 1)[https://www.ra
 - power cycle the RVPC
 - power cycle the Pico
 - flash from the terminal using the command: `gdb-multiarch -ex 'target extended-remote /dev/ttyACM0' -ex 'load' -ex 'detach' -ex 'quit' "firmware.elf"`
+
+# Debugging the firmware:
+
+ - (optionally) add initial breakpoint programmatically (usually at the start of the main function):
+    ```
+    #if defined(__riscv)
+        __asm__ volatile("ebreak");
+    #endif
+    ```
+ - make sure you have `gdb-multiarch` (see dependencies in **flashing** section)
+ - connect Raspberry to RVPC, powercycle rvpc, then powercycle raspberry or connect it to the Laptop/PC
+ - in terminal navigate to the project directory
+ - connect to the debugger with either:
+   - in the terminal: run the command `gdb-multiarch -ex 'target extended-remote /dev/ttyACM0'  ".pio/build/RVPC/firmware.elf"`
+   - in vscode create a debugging setting (or just copy the [launch.json](./SOFTWARE/launch.json) to .vscode directory of the project) and hit F5
+ - do debugging
 
 # Writing some display code
 
