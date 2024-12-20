@@ -240,11 +240,11 @@ public:
 
 	static void handle() {
 		if (is_rawdata_ready == 0) { return; /* no data */ }
-		if (is_data_ready) { return raw_reset(); /* keyboard was not read yet */ }
+		if (is_data_ready) { raw_reset(); return; /* keyboard was not read yet */ }
 
 		// Check start bit
 		uint16_t mask = 0b0000010000000000;
-		if (rawdata & mask) { return raw_reset(); /* wrong start bit */ } 
+		if (rawdata & mask) { raw_reset(); return; /* wrong start bit */ } 
 
 		// Get data bits
 		uint8_t buff = 0;
