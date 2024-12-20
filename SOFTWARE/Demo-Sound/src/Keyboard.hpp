@@ -201,6 +201,9 @@ public:
 		is_init = true;
 	}
 
+	/// @brief Convert key code into ascii
+	/// @param key_code key code
+	/// @return ascii code
 	static char ascii(uint32_t key_code) {
 		return gKeyCodeToAscii[((uint8_t)key_code) & 0b01111111];
 	}
@@ -279,6 +282,12 @@ public:
 			return kbd_code;
 		}
 		return 0;
+	}
+
+	/// @brief Read printable symbol from keyboard input
+	/// @return ascii symbol if si_printable(), otherwise 0
+	static uint32_t read_printable() {
+		return ascii(read());
 	}
 
 	/// @brief Store keyboard incoming raw data bit
