@@ -40,6 +40,7 @@
                 "CH32V003",
                 "SYSCLK_FREQ_48MHZ_HSI",
                 "__PIO_CPP_SUPPORT__",
+                "__PLATFORMIO_BUILD_DEBUG__",
                 ""
             ],
             "cStandard": "gnu99",
