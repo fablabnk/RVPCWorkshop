@@ -174,12 +174,12 @@ constexpr const std::array<char, 128u> gKeyCodeToAscii = {
 class Keyboard {
 private:
 
-	static bool     is_init;            // current state of keyboard
-	static bool     is_rawdata_ready;   // flag
-	static bool     is_data_ready;      // flag
-	static uint8_t  rawdata_idx;        // raw data buffer bits counter / idx
-	static uint16_t rawdata;            // raw data buffer
-	static uint32_t data;               // key-code buffer
+	static inline bool     is_init			= false;	// current state of kbd
+	static inline bool     is_rawdata_ready	= false;	// flag
+	static inline bool     is_data_ready	= false;	// flag
+	static inline uint8_t  rawdata_idx		= 0;		// raw data bits idx
+	static inline uint16_t rawdata			= 0;		// raw data buffer
+	static inline uint32_t data				= 0;		// key-code buffer
 
 	static inline void raw_reset() {
 		rawdata = 0;
@@ -295,20 +295,3 @@ public:
 		EXTI->INTFR = EXTI_Line1; // get ready for the next interrupt event
 	}
 };
-
-/* initialize static data members */
-
-bool        Keyboard::is_init = false;
-bool        Keyboard::is_rawdata_ready= false;
-bool        Keyboard::is_data_ready= false;
-uint8_t     Keyboard::rawdata_idx = 0;
-uint16_t    Keyboard::rawdata = 0;
-uint32_t    Keyboard::data = 0;
-
-/* ****************************** */
-
-/// @brief Keyboard datapin-triggered-interrupt handler
-void EXTI7_0_IRQHandler(void) __attribute__((interrupt("WCH-Interrupt-fast")));
-void EXTI7_0_IRQHandler(void) {
-	Keyboard::store_bit();
-}

@@ -29,16 +29,16 @@ SOFTWARE.
 class Tick {
 private:
 	/// @brief curent state of SysTick
-	static bool is_init;
+	static inline bool is_init = false;
 public:
 
 	Tick() = delete;
 
 	/// @brief Amount of system core clock ticks per millisecond
-	static const uint32_t ticks_per_ms;
+	static inline uint32_t ticks_per_ms = SystemCoreClock / 1'000u;
 
 	/// @brief Amount of system core clock ticks per microsecond
-	static const uint32_t ticks_per_us;
+	static inline uint32_t ticks_per_us = SystemCoreClock / 1'000'000u;
 
 	/// @brief Initialize SysTick
 	static void init() {
@@ -52,10 +52,6 @@ public:
 		is_init = true;
 	}
 };
-
-bool Tick::is_init = false;
-const uint32_t Tick::ticks_per_ms = SystemCoreClock / 1'000u;
-const uint32_t Tick::ticks_per_us = SystemCoreClock / 1'000'000u;
 
 /// @brief Allows to set a delay at 'tick', 'us' or 'ms' scale
 class Delay {

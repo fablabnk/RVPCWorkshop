@@ -35,7 +35,7 @@ int main(void) {
 	Config::init_System();	// initialize system clock and memory
 	Tick::init();			// initialize sistem tick
 	Keyboard::init();		// initialize keyboard
-	Buzzer::init();
+	Buzzer::init();			// initialize buzzer
 
 	// run application
 	loop();

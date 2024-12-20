@@ -43,7 +43,7 @@ private:
 		buzz(1047, 50);
 		buzz(1397, 50);
 	}
-	static bool is_init;
+	static inline bool is_init = false;
 public:
 	/// @brief Only static members, no need to initialize
 	Buzzer() = delete;
@@ -91,5 +91,3 @@ public:
 		}
 	}
 };
-
-bool Buzzer::is_init = false;

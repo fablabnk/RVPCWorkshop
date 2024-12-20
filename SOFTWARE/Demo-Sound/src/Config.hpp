@@ -31,6 +31,12 @@ enum class TimChannel : uint8_t {C1=1u, C2, C3, C4};
 class Config {
 private:
 public:
+
+	static void init_System() {
+		SystemInit();
+		SystemCoreClockUpdate();
+	}
+
 	/// @brief Configure GPIO pin
 	/// @param port port name
 	/// @param pin pin index
