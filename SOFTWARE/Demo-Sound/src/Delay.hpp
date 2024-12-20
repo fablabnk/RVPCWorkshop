@@ -63,27 +63,25 @@ public:
 	/// @brief Delays execution by 'amount' of milliseconds
 	/// @param amount milliseconds
 	static void ms(uint32_t amount) {
-		static volatile uint32_t start;
-		amount = amount * Tick::ticks_per_ms - 193;
-		start = SysTick->CNT;
-		while (SysTick->CNT - start < amount);
+		volatile uint32_t delay = amount * Tick::ticks_per_ms;
+		volatile uint32_t start = SysTick->CNT;
+		while (SysTick->CNT - start < delay) ;
 	}
 
 	/// @brief Delays execution by 'amount' of microseconds
 	/// @param amount microseconds
 	static void us(uint32_t amount) {
-		static volatile uint32_t start;
-		amount = amount * Tick::ticks_per_us - 83;
-		start = SysTick->CNT;
-		while (SysTick->CNT - start < amount);
+		volatile uint32_t delay = amount * Tick::ticks_per_us;
+		volatile uint32_t start = SysTick->CNT;
+		while (SysTick->CNT - start < delay) ;
 	}
 
 	/// @brief Delays execution by 'amount' of system core clock ticks
 	/// @param amount ticks
 	static void ticks(uint32_t amount) {
-		static volatile uint32_t start;
-		start = SysTick->CNT;
-		while (SysTick->CNT - start < amount);
+		static volatile uint32_t start = SysTick->CNT;
+		while (SysTick->CNT - start < amount) {
+		}
 	}
 };
 
@@ -91,7 +89,7 @@ public:
 class TimeoutMs {
 private:
 
-	/// @brief Start of the delay - current system core clock value
+	/// @brief Start of the delay - current system tick value
 	volatile uint32_t start;
 	/// @brief Amount of ticks until the end of the delay
 	volatile uint32_t stop;
@@ -111,5 +109,8 @@ public:
 
 	/// @brief Returns true if timeout has been reached
 	/// @return true or false
-	bool operator!() const { return (SysTick->CNT - start > stop); }
+	bool operator!() const {
+		volatile auto current = SysTick->CNT;
+		return (current - start < stop);
+	}
 };
