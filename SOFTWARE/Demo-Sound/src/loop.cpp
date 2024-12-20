@@ -26,44 +26,6 @@ SOFTWARE.
 #include "Buzzer.hpp"
 #include "Delay.hpp"
 #include "Sound.hpp"
-#include "loop.h"
-
-#ifdef __cplusplus
-extern "C" {
-#endif
-
-void NMI_Handler(void) __attribute__((interrupt("WCH-Interrupt-fast")));
-void NMI_Handler(void) {
-	
-}
-
-void HardFault_Handler(void) __attribute__((interrupt("WCH-Interrupt-fast"))); 
-void HardFault_Handler(void) {
-	while (1) {
-		
-	}
-}
-
-#ifdef __cplusplus
-}
-#endif
-
-void init() {
-	__NOP();
-	NVIC_PriorityGroupConfig(NVIC_PriorityGroup_1);
-	SystemCoreClockUpdate();
-
-	// Disable GPIO Alternate Functions and extrnal oscilator
-	// Othewize GPIO PORT A does not work
-	RCC_HSEConfig(RCC_HSE_OFF);
-	GPIO_PinRemapConfig(GPIO_Remap_PA1_2, DISABLE);
-
-	// Remapping
-	RCC_APB2PeriphClockCmd(RCC_APB2Periph_AFIO, ENABLE);
-	Tick::init();
-	Keyboard::init();
-	Buzzer::init();
-}
 
 void loop() {
 	while (1) {

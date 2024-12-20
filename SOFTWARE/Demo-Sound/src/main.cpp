@@ -23,9 +23,50 @@ SOFTWARE.
 */
 
 #include <ch32v00x.h>
-#include "loop.h"
+#include "Buzzer.hpp"
+#include "Config.hpp"
+#include "Keyboard.hpp"
+#include "Delay.hpp"
+
+// main application loop
+void loop();
 
 int main(void) {
-	init();
+	Config::init_System();	// initialize system clock and memory
+	Tick::init();			// initialize sistem tick
+	Keyboard::init();		// initialize keyboard
+	Buzzer::init();
+
+	// run application
 	loop();
 }
+
+
+/* =========================================================================
+								Interrupt Handlers
+   ========================================================================= */
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+void NMI_Handler(void) __attribute__((interrupt("WCH-Interrupt-fast")));
+void NMI_Handler(void) {
+	
+}
+
+void HardFault_Handler(void) __attribute__((interrupt("WCH-Interrupt-fast"))); 
+void HardFault_Handler(void) {
+	while (1) {
+		
+	}
+}
+
+/// @brief Keyboard datapin-triggered-interrupt handler
+void EXTI7_0_IRQHandler(void) __attribute__((interrupt("WCH-Interrupt-fast")));
+void EXTI7_0_IRQHandler(void) {
+	Keyboard::store_bit();
+}
+
+#ifdef __cplusplus
+}
+#endif
