@@ -27,9 +27,8 @@ SOFTWARE.
 #include "Delay.hpp"
 #include "Sound.hpp"
 
-void loop() {
-	while (1) {
-		Buzzer::play(Sound::pause(Len::_8));
+void play_5th_symphony() {
+			Buzzer::play(Sound::pause(Len::_8));
 		Buzzer::play(Sound::create(Note::G, 4, Len::_8));
 		Buzzer::play(Sound::create(Note::G, 4, Len::_8));
 		Buzzer::play(Sound::create(Note::G, 4, Len::_8));
@@ -105,6 +104,64 @@ void loop() {
 		Buzzer::play(Sound::pause(Len::_4));
 // ----
 		Buzzer::play(Sound::create(Note::G, 5, Len::_2));
-		Delay::ms(5000);
+		Delay::ms(100);
+};
+
+void loop() {
+	while (1) {
+		char c = Keyboard::read_printable();
+		switch (c) {
+			case 'Z':
+			case 'z':
+				Buzzer::play(Sound::create(Note::C, 3, Len::_32));
+				break;
+			case 'S':
+			case 's':
+				Buzzer::play(Sound::create(Note::Cis, 3, Len::_32));
+				break;
+			case 'X':
+			case 'x':
+				Buzzer::play(Sound::create(Note::D, 3, Len::_32));
+				break;
+			case 'D':
+			case 'd':
+				Buzzer::play(Sound::create(Note::Dis, 3, Len::_32));
+				break;
+			case 'C':
+			case 'c':
+				Buzzer::play(Sound::create(Note::E, 3, Len::_32));
+				break;
+			case 'V':
+			case 'v':
+				Buzzer::play(Sound::create(Note::F, 3, Len::_32));
+				break;
+			case 'G':
+			case 'g':
+				Buzzer::play(Sound::create(Note::Fis, 3, Len::_32));
+				break;
+			case 'B':
+			case 'b':
+				Buzzer::play(Sound::create(Note::G, 3, Len::_32));
+				break;
+			case 'H':
+			case 'h':
+				Buzzer::play(Sound::create(Note::Gis, 3, Len::_32));
+				break;
+			case 'N':
+			case 'n':
+				Buzzer::play(Sound::create(Note::A, 3, Len::_32));
+				break;
+			case 'J':
+			case 'j':
+				Buzzer::play(Sound::create(Note::Ais, 3, Len::_32));
+				break;
+			case 'K':
+			case 'k':
+				Buzzer::play(Sound::create(Note::B, 3, Len::_32));
+				break;
+			default:
+				Buzzer::play(Sound::pause(Len::_32));
+				break;
+		}
 	}
 }
