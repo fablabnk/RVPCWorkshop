@@ -22,32 +22,21 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
+
+
 #include <ch32v00x.h>
 #include "Buzzer.hpp"
 #include "Config.hpp"
 #include "Keyboard.hpp"
-#include "Delay.hpp"
 
-// main application loop
-void loop();
-
-int main(void) {
-	Config::init_System();	// initialize system clock and memory
-	Tick::init();			// initialize sistem tick
-	Keyboard::init();		// initialize keyboard
-	Buzzer::init();			// initialize buzzer
-
-	// run application
-	loop();
-}
-
-
-/* =========================================================================
-								Interrupt Handlers
-   ========================================================================= */
+/// =========================================================================
+///								Interrupt Handlers
+///	=========================================================================
 #ifdef __cplusplus
 extern "C" {
 #endif
+
+int main(void);
 
 void NMI_Handler(void) __attribute__((interrupt("WCH-Interrupt-fast")));
 void NMI_Handler(void) {
@@ -70,3 +59,20 @@ void EXTI7_0_IRQHandler(void) {
 #ifdef __cplusplus
 }
 #endif
+
+/// =========================================================================
+///								==================
+///	=========================================================================
+
+// main application loop
+void loop();
+
+int main(void) {
+	Config::init_System();	// initialize system clock and memory
+	Tick::init();			// initialize sistem tick
+	Keyboard::init();		// initialize keyboard
+	Buzzer::init();			// initialize buzzer
+
+	// run application
+	loop();
+}
