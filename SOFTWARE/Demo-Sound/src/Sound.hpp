@@ -101,6 +101,6 @@ public:
 	}
 
 	static CSound pause(Len duration) {
-		return { LengthMs[uint8_t(duration)], 0, LengthMs[uint8_t(duration)] - 1u };
+		return { LengthMs[uint8_t(duration)], 0, 1'000'000u };
 	}
 };
