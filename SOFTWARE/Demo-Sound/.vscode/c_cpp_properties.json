@@ -8,27 +8,27 @@
         {
             "name": "PlatformIO",
             "includePath": [
-                "/Users/user/fablabnk/RVPCWorkshop/SOFTWARE/Demo-Sound/include",
-                "/Users/user/fablabnk/RVPCWorkshop/SOFTWARE/Demo-Sound/src",
-                "/Users/user/.platformio/packages/framework-wch-noneos-sdk/Core/ch32v00x",
-                "/Users/user/.platformio/packages/framework-wch-noneos-sdk/Peripheral/ch32v00x/inc",
-                "/Users/user/.platformio/packages/framework-wch-noneos-sdk/Peripheral/ch32v00x/src",
-                "/Users/user/.platformio/packages/framework-wch-noneos-sdk/Startup",
-                "/Users/user/.platformio/packages/framework-wch-noneos-sdk/System/ch32v00x",
-                "/Users/user/.platformio/packages/framework-wch-noneos-sdk/Debug/ch32v00x",
+                "/home/ladmin/RVPCWorkshop/SOFTWARE/Demo-Sound/include",
+                "/home/ladmin/RVPCWorkshop/SOFTWARE/Demo-Sound/src",
+                "/home/ladmin/.platformio/packages/framework-wch-noneos-sdk/Core/ch32v00x",
+                "/home/ladmin/.platformio/packages/framework-wch-noneos-sdk/Peripheral/ch32v00x/inc",
+                "/home/ladmin/.platformio/packages/framework-wch-noneos-sdk/Peripheral/ch32v00x/src",
+                "/home/ladmin/.platformio/packages/framework-wch-noneos-sdk/Startup",
+                "/home/ladmin/.platformio/packages/framework-wch-noneos-sdk/System/ch32v00x",
+                "/home/ladmin/.platformio/packages/framework-wch-noneos-sdk/Debug/ch32v00x",
                 ""
             ],
             "browse": {
                 "limitSymbolsToIncludedHeaders": true,
                 "path": [
-                    "/Users/user/fablabnk/RVPCWorkshop/SOFTWARE/Demo-Sound/include",
-                    "/Users/user/fablabnk/RVPCWorkshop/SOFTWARE/Demo-Sound/src",
-                    "/Users/user/.platformio/packages/framework-wch-noneos-sdk/Core/ch32v00x",
-                    "/Users/user/.platformio/packages/framework-wch-noneos-sdk/Peripheral/ch32v00x/inc",
-                    "/Users/user/.platformio/packages/framework-wch-noneos-sdk/Peripheral/ch32v00x/src",
-                    "/Users/user/.platformio/packages/framework-wch-noneos-sdk/Startup",
-                    "/Users/user/.platformio/packages/framework-wch-noneos-sdk/System/ch32v00x",
-                    "/Users/user/.platformio/packages/framework-wch-noneos-sdk/Debug/ch32v00x",
+                    "/home/ladmin/RVPCWorkshop/SOFTWARE/Demo-Sound/include",
+                    "/home/ladmin/RVPCWorkshop/SOFTWARE/Demo-Sound/src",
+                    "/home/ladmin/.platformio/packages/framework-wch-noneos-sdk/Core/ch32v00x",
+                    "/home/ladmin/.platformio/packages/framework-wch-noneos-sdk/Peripheral/ch32v00x/inc",
+                    "/home/ladmin/.platformio/packages/framework-wch-noneos-sdk/Peripheral/ch32v00x/src",
+                    "/home/ladmin/.platformio/packages/framework-wch-noneos-sdk/Startup",
+                    "/home/ladmin/.platformio/packages/framework-wch-noneos-sdk/System/ch32v00x",
+                    "/home/ladmin/.platformio/packages/framework-wch-noneos-sdk/Debug/ch32v00x",
                     ""
                 ]
             },
@@ -45,7 +45,7 @@
             ],
             "cStandard": "gnu99",
             "cppStandard": "gnu++17",
-            "compilerPath": "/Users/user/.platformio/packages/toolchain-riscv/bin/riscv-none-embed-gcc",
+            "compilerPath": "/home/ladmin/.platformio/packages/toolchain-riscv/bin/riscv-none-embed-gcc",
             "compilerArgs": [
                 "-msmall-data-limit=0",
                 "-msave-restore",
