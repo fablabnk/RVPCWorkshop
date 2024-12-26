@@ -28,7 +28,6 @@ SOFTWARE.
 #include <array>
 
 
-/// #TODO: ensure that this goes to FLASH memory.
 /// @brief  Set of displayable ascii characters in a 8x8-bit shape.
 ///         contains only capital letters that are moved 64 positions
 ///         to the left compared to ascii table; ' ' to '@' have the same

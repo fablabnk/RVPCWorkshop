@@ -31,17 +31,17 @@ private:
 	/// @brief curent state of SysTick
 	static inline bool is_init = false;
 
-#if defined(SYSCLK_FREQ_24MHz_HSE) || defined(SYSCLK_FREQ_24MHZ_HSI)
-	static inline uint32_t SysClock = 24'000'000u;
-#elif  defined(SYSCLK_FREQ_8MHz_HSI) || defined(SYSCLK_FREQ_8MHz_HSE)
-	static inline uint32_t SysClock = 8'000'000u;
-#else
-	static inline uint32_t SysClock = 48'000'000u;
-#endif
-
 public:
 
 	Tick() = delete;
+
+	#if defined(SYSCLK_FREQ_24MHz_HSE) || defined(SYSCLK_FREQ_24MHZ_HSI)
+		static inline uint32_t SysClock = 24'000'000u;
+	#elif  defined(SYSCLK_FREQ_8MHz_HSI) || defined(SYSCLK_FREQ_8MHz_HSE)
+		static inline uint32_t SysClock = 8'000'000u;
+	#else
+		static inline uint32_t SysClock = 48'000'000u;
+	#endif
 
 	/// @brief Amount of system core clock ticks per millisecond
 	static inline uint32_t ticks_per_ms = SysClock / 1'000u;

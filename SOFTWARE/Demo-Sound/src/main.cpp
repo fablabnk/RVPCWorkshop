@@ -23,13 +23,12 @@ SOFTWARE.
 */
 
 #include <ch32v00x.h>
+#include "App.hpp"
 #include "Buzzer.hpp"
 #include "Config.hpp"
 #include "Delay.hpp"
 #include "Keyboard.hpp"
-
-// main application loop
-void loop();
+#include "VGA.hpp"
 
 int main(void) {
 	// initialize peripherals
@@ -37,14 +36,17 @@ int main(void) {
 	Tick::init();			// initialize sistem tick
 	Keyboard::init();		// initialize keyboard
 	Buzzer::init();			// initialize buzzer
+	VGA::init();			// initialize VGA
 
-	// run application
-	loop();
+	App::run();
 }
 
 /// =========================================================================
 ///								Interrupt Handlers
 ///	=========================================================================
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 void NMI_Handler(void) __attribute__((interrupt("WCH-Interrupt-fast")));
 void NMI_Handler(void) {
@@ -63,6 +65,29 @@ void EXTI7_0_IRQHandler(void) __attribute__((interrupt("WCH-Interrupt-fast")));
 void EXTI7_0_IRQHandler(void) {
 	Keyboard::store_bit();
 }
+
+
+
+
+
+/// @brief Horizontal synchronisation handler. 
+void TIM2_IRQHandler(void) __attribute__((interrupt("WCH-Interrupt-fast")));
+void TIM2_IRQHandler(void) {
+	// // Hsync code
+	VGA::put_scanline();
+	GPIOC->OUTDR &= (~GPIO_Pin_2);
+	VGA::htim_reset();
+}
+
+void TIM1_UP_IRQHandler(void) __attribute__((interrupt("WCH-Interrupt-fast")));
+void TIM1_UP_IRQHandler(void) {
+	// Vsync code
+	VGA::vtim_reset();
+}
+
+#ifdef __cplusplus
+}
+#endif
 
 /// =========================================================================
 ///								==================

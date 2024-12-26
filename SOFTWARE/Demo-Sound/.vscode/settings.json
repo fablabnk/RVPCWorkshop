@@ -1,19 +1,10 @@
 {
     "files.associations": {
-        "Buzzer.hpp": "cpp",
-        "Charset.hpp": "cpp",
-        "Delay.hpp": "cpp",
-        "Keyboard.hpp": "cpp",
-        "loop.cpp": "cpp",
-        "main.cpp": "cpp",
-        "Sound.hpp": "cpp",
-        "misc.hpp": "cpp",
-        "ch32v00x.h": "c",
+        "*.h": "c",
+        "*.c": "c",
         "*.tcc": "cpp",
-        "string": "cpp",
-        "string_view": "cpp",
-        "ch32v00x_rcc.h": "c",
-        "system_ch32v00x.h": "c",
-        "core_riscv.h": "c"
+        "*.cpp": "cpp",
+        "*.hpp": "cpp",
+        "random": "cpp"
     }
 }

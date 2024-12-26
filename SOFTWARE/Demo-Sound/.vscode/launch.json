@@ -9,65 +9,39 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "GDB Remote Debug",
-            "type": "cppdbg",
+            "type": "platformio-debug",
             "request": "launch",
-            "program": "${workspaceFolder}/.pio/build/Demo-Sound/firmware.elf",
-            "args": [],
-            "stopAtEntry": true,
-            "cwd": "${workspaceFolder}",
-            "environment": [],
-            "externalConsole": false,
-            "MIMode": "gdb",
-            "miDebuggerPath": "/usr/bin/gdb-multiarch",
-            "miDebuggerServerAddress": "/dev/ttyACM0", // adjust the actual name of the connected device (ls-l /dev | grep ACM)
-            "setupCommands": [
-                {
-                    "description": "Enable pretty-printing for gdb",
-                    "text": "-enable-pretty-printing",
-                    "ignoreFailures": true
-                },
-                {
-                    "description": "Set Disassembly Flavor to Intel",
-                    "text": "-gdb-set disassembly-flavor intel",
-                    "ignoreFailures": true
-                }
-            ]
+            "name": "PIO Debug",
+            "executable": "/Users/user/fablabnk/RVPCWorkshop/SOFTWARE/Demo-Sound/.pio/build/Demo-Sound/firmware.elf",
+            "projectEnvName": "Demo-Sound",
+            "toolchainBinDir": "/Users/user/.platformio/packages/toolchain-riscv/bin",
+            "internalConsoleOptions": "openOnSessionStart",
+            "svdPath": "/Users/user/.platformio/platforms/ch32v/misc/svd/CH32V003xx.svd",
+            "preLaunchTask": {
+                "type": "PlatformIO",
+                "task": "Pre-Debug"
+            }
+        },
+        {
+            "type": "platformio-debug",
+            "request": "launch",
+            "name": "PIO Debug (skip Pre-Debug)",
+            "executable": "/Users/user/fablabnk/RVPCWorkshop/SOFTWARE/Demo-Sound/.pio/build/Demo-Sound/firmware.elf",
+            "projectEnvName": "Demo-Sound",
+            "toolchainBinDir": "/Users/user/.platformio/packages/toolchain-riscv/bin",
+            "internalConsoleOptions": "openOnSessionStart",
+            "svdPath": "/Users/user/.platformio/platforms/ch32v/misc/svd/CH32V003xx.svd"
+        },
+        {
+            "type": "platformio-debug",
+            "request": "launch",
+            "name": "PIO Debug (without uploading)",
+            "executable": "/Users/user/fablabnk/RVPCWorkshop/SOFTWARE/Demo-Sound/.pio/build/Demo-Sound/firmware.elf",
+            "projectEnvName": "Demo-Sound",
+            "toolchainBinDir": "/Users/user/.platformio/packages/toolchain-riscv/bin",
+            "internalConsoleOptions": "openOnSessionStart",
+            "svdPath": "/Users/user/.platformio/platforms/ch32v/misc/svd/CH32V003xx.svd",
+            "loadMode": "manual"
         }
-        // {
-        //     "type": "platformio-debug",
-        //     "request": "launch",
-        //     "name": "PIO Debug",
-        //     "executable": "/home/ladmin/RVPCWorkshop/SOFTWARE/Demo-Sound/.pio/build/Demo-Sound/firmware.elf",
-        //     "projectEnvName": "Demo-Sound",
-        //     "toolchainBinDir": "/home/ladmin/.platformio/packages/toolchain-riscv/bin",
-        //     "internalConsoleOptions": "openOnSessionStart",
-        //     "svdPath": "/home/ladmin/.platformio/platforms/ch32v/misc/svd/CH32V003xx.svd",
-        //     "preLaunchTask": {
-        //         "type": "PlatformIO",
-        //         "task": "Pre-Debug"
-        //     }
-        // },
-        // {
-        //     "type": "platformio-debug",
-        //     "request": "launch",
-        //     "name": "PIO Debug (skip Pre-Debug)",
-        //     "executable": "/home/ladmin/RVPCWorkshop/SOFTWARE/Demo-Sound/.pio/build/Demo-Sound/firmware.elf",
-        //     "projectEnvName": "Demo-Sound",
-        //     "toolchainBinDir": "/home/ladmin/.platformio/packages/toolchain-riscv/bin",
-        //     "internalConsoleOptions": "openOnSessionStart",
-        //     "svdPath": "/home/ladmin/.platformio/platforms/ch32v/misc/svd/CH32V003xx.svd"
-        // },
-        // {
-        //     "type": "platformio-debug",
-        //     "request": "launch",
-        //     "name": "PIO Debug (without uploading)",
-        //     "executable": "/home/ladmin/RVPCWorkshop/SOFTWARE/Demo-Sound/.pio/build/Demo-Sound/firmware.elf",
-        //     "projectEnvName": "Demo-Sound",
-        //     "toolchainBinDir": "/home/ladmin/.platformio/packages/toolchain-riscv/bin",
-        //     "internalConsoleOptions": "openOnSessionStart",
-        //     "svdPath": "/home/ladmin/.platformio/platforms/ch32v/misc/svd/CH32V003xx.svd",
-        //     "loadMode": "manual"
-        // }
     ]
 }
