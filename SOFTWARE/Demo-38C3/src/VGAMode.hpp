@@ -55,8 +55,7 @@ struct VGAMode {
 	}
 };
 
-/// @brief 320x240 @60Hz // doesn't work (1524 183 262 2)
-/// 320	240	60 Hz	31.5 kHz	ModeLine "320x240" 12.60 320 328 376 400 240 245 246 262 -HSync -VSync DoubleScan
+/// @brief 320x240 @60Hz // doesn't work
 constexpr const VGAMode m320x240_60Hz = {
 	.frequency=60u,
 	.linefreq=31500u,
@@ -77,7 +76,6 @@ constexpr const VGAMode m320x240_60Hz = {
 };
 
 /// @brief 512x384 @60Hz // doesn't work
-/// 512 384 60 Hz 48.3631 kHz ModeLine "512x384" 32.50 512 524 592 672 384 385 388 403 -HSync -VSync DoubleScan
 constexpr const VGAMode m512x384_60Hz = {
 	.frequency=60u,
 	.linefreq=48363u,
@@ -97,8 +95,7 @@ constexpr const VGAMode m512x384_60Hz = {
 	.vsync=Sync::Lo
 };
 
-/// @brief 640x480 @60Hz // works, effective 240x480 // if (VGA_VSYNC_TIM->CNT > 37 && VGA_VSYNC_TIM->CNT < 480 + 33) { while(VGA_HSYNC_TIM->CNT < (144) * 1.87) ; GPIOC->OUTDR |= (GPIO_Pin_2); GPIOC->OUTDR &= (~GPIO_Pin_2); }
-/// 640	480	60 Hz	31.5 kHz	ModeLine "640x480" 25.20 640 656 752 800 480 490 492 525 -HSync -VSync
+/// @brief 640x480 @60Hz // works, effective 240x480
 constexpr const VGAMode m640x480_60Hz = {
 	.frequency=60u,
 	.linefreq=31500u,
@@ -118,8 +115,7 @@ constexpr const VGAMode m640x480_60Hz = {
 	.vsync=Sync::Lo
 };
 
-/// @brief PAL 720x576 @50
-/// 720 576 50 Hz 31.2 kHz ModeLine "720x576@50" 27 720 732 795 864 576 581 586 625 -hsync -vsync
+/// @brief PAL 720x576 @50 // works, effective 240x576
 constexpr const VGAMode mPAL720x576_50Hz = {
 	.frequency=50u,
 	.linefreq=31200u,
@@ -139,8 +135,7 @@ constexpr const VGAMode mPAL720x576_50Hz = {
 	.vsync=Sync::Lo
 };
 
-/// @brief 800x600 @56Hz
-/// 800	600	56 Hz	35.1562 kHz	ModeLine "800x600" 36.00 800 824 896 1024 600 601 603 625 +HSync +VSync
+/// @brief 800x600 @56Hz // works
 constexpr const VGAMode m800x600_56Hz = {
 	.frequency=56u,
 	.linefreq=35156u,
@@ -161,7 +156,6 @@ constexpr const VGAMode m800x600_56Hz = {
 };
 
 /// @brief 1024x768 @60Hz // effective res 150x768
-/// 1024	768	60 Hz	48.3631 kHz	ModeLine "1024x768" 65.00 1024 1048 1184 1344 768 771 777 806 -HSync -VSync
 constexpr const VGAMode m1024x768_60Hz = {
 	.frequency=60u,
 	.linefreq=48363u,
@@ -181,29 +175,27 @@ constexpr const VGAMode m1024x768_60Hz = {
 	.vsync=Sync::Lo
 };
 
-/* 1024 
-Parameter	Horizontal	Vertical
-Resolution	800 pixels	600 lines
-Front Porch	16 pixels	1 line
-Sync Width	80 pixels	3 lines
-Back Porch	160 pixels	21 lines
-Total	1056 pixels	625 lines
-Frequency	46.875 kHz	75 Hz
-Polarity	Positive	Positive
-*/
+/// @brief Demo-Tetris resolution, gives horisontal resolution 250 pixels
+constexpr const VGAMode m800x600_75Hz = {
+	.frequency=75u,
+	.linefreq=46875u,
+	.htim={
+		.fporch=16u,
+		.spulse=80u,
+		.bporch=96u
+	},
+	.hres=800u,
+	.vtim={
+		.fporch=1u,
+		.spulse=3u,
+		.bporch=21u
+	},
+	.vres=600u,
+	.hsync=Sync::Hi,
+	.vsync=Sync::Hi
+};
 
-/* 1268, 1.524 * 64 = 97.5, 445 3
-Parameter	Horizontal	Vertical
-Resolution	640 pixels	350 lines
-Front Porch	32 pixels	32 lines
-Sync Width	64 pixels	3 lines
-Back Porch	96 pixels	60 lines
-Total	832 pixels	445 lines
-Frequency	37.8606 kHz	85 Hz
-Polarity	Positive	Negative
-*/
-
-/// @brief 640x350 @85Hz // 1268, 1.524 * 64 = 97.5, 445 3
+/// @brief 640x350 @85Hz // works
 constexpr const VGAMode m640x350_85Hz = {
 	.frequency=85u,
 	.linefreq=37861u,

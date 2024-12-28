@@ -30,28 +30,6 @@ SOFTWARE.
 #include "Sound.hpp"
 #include "VGA.hpp"
 
-/// @brief Prepares scanline to be displayed
-void App::update_scanline() {
-	// this scanline index not in the displayable range
-	// if (!VGA::is_displayable()) return;
-
-	// uint16_t line_idx = VGA::line_idx();
-	// uint32_t buff_idx = (line_idx >> 3);	// index of the line in the display buffer
-	// uint32_t charset_idx = line_idx & 0x7;	// index of the line in charset
-	// uint16_t max_chars = VGA::hres_chars();
-
-	// for (uint16_t i = 0u; i < max_chars; i += 8) {
-	// 	gSL.at(i) = gPrintable[framebuf[buff_idx * max_chars + i]][charset_idx];
-	// 	gSL.at(i + 1) = gPrintable[framebuf[buff_idx * max_chars + i + 1]][charset_idx];
-	// 	gSL.at(i + 2) = gPrintable[framebuf[buff_idx * max_chars + i + 2]][charset_idx];
-	// 	gSL.at(i + 3) = gPrintable[framebuf[buff_idx * max_chars + i + 3]][charset_idx];
-	// 	gSL.at(i + 4) = gPrintable[framebuf[buff_idx * max_chars + i + 4]][charset_idx];
-	// 	gSL.at(i + 5) = gPrintable[framebuf[buff_idx * max_chars + i + 5]][charset_idx];
-	// 	gSL.at(i + 6) = gPrintable[framebuf[buff_idx * max_chars + i + 6]][charset_idx];
-	// 	gSL.at(i + 7) = gPrintable[framebuf[buff_idx * max_chars + i + 7]][charset_idx];
-	// }
-}
-
 // Add application logic here
 void App::update_frame() {
 	volatile char c = Keyboard::ascii(Keyboard::wait_any());
@@ -109,6 +87,28 @@ void App::update_frame() {
 			Buzzer::play(Sound::pause(Len::_32));
 			break;
 	}
+}
+
+/// @brief Prepares scanline to be displayed
+void App::update_scanline(uint16_t line_idx) {
+	// framebuf line index
+	uint16_t fi = line_idx >> 3;
+	// charset line index
+	uint16_t ci = line_idx & 0b00000111;
+	VGA::SL[0] = gC[framebuf[fi][0]][ci]; VGA::SL[1] = gC[framebuf[fi][1]][ci];
+	VGA::SL[2] = gC[framebuf[fi][2]][ci]; VGA::SL[3] = gC[framebuf[fi][3]][ci];
+	VGA::SL[4] = gC[framebuf[fi][4]][ci]; VGA::SL[5] = gC[framebuf[fi][5]][ci];
+	VGA::SL[6] = gC[framebuf[fi][6]][ci]; VGA::SL[7] = gC[framebuf[fi][7]][ci];
+	VGA::SL[8] = gC[framebuf[fi][8]][ci]; VGA::SL[9] = gC[framebuf[fi][9]][ci];
+	VGA::SL[10] = gC[framebuf[fi][10]][ci]; VGA::SL[11] = gC[framebuf[fi][11]][ci];
+	VGA::SL[12] = gC[framebuf[fi][12]][ci]; VGA::SL[13] = gC[framebuf[fi][13]][ci];
+	VGA::SL[14] = gC[framebuf[fi][14]][ci]; VGA::SL[15] = gC[framebuf[fi][15]][ci];
+	VGA::SL[16] = gC[framebuf[fi][16]][ci]; VGA::SL[17] = gC[framebuf[fi][17]][ci];
+	VGA::SL[18] = gC[framebuf[fi][18]][ci]; VGA::SL[19] = gC[framebuf[fi][19]][ci];
+	VGA::SL[20] = gC[framebuf[fi][20]][ci]; VGA::SL[21] = gC[framebuf[fi][21]][ci];
+	VGA::SL[22] = gC[framebuf[fi][22]][ci]; VGA::SL[23] = gC[framebuf[fi][23]][ci];
+	VGA::SL[24] = gC[framebuf[fi][24]][ci]; VGA::SL[25] = gC[framebuf[fi][25]][ci];
+	VGA::SL[26] = gC[framebuf[fi][26]][ci]; VGA::SL[27] = gC[framebuf[fi][27]][ci];
 }
 
 

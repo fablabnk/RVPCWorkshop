@@ -74,7 +74,10 @@ void EXTI7_0_IRQHandler(void) {
 void TIM2_IRQHandler(void) __attribute__((interrupt("WCH-Interrupt-fast")));
 void TIM2_IRQHandler(void) {
 	// // Hsync code
-	VGA::put_scanline();
+	if (VGA::is_displayable()) {					// this scanline index is in the displayable range
+		App::update_scanline(VGA::line_idx()/4);	// quadscan - put the same line for 4 times
+		VGA::put_scanline();						// put every displayable scanline
+	}
 	GPIOC->OUTDR &= (~GPIO_Pin_2);
 	VGA::htim_reset();
 }

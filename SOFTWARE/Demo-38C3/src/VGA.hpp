@@ -74,18 +74,7 @@ private:
 public:
 
 	// Scanline buffer
-	static inline std::array<uint8_t, 40> SL {
-		0b10101010, 0b11111111, 0b0,
-		0b10101010, 0b11111111, 0b0,
-		0b10101010, 0b11111111, 0b0,
-		0b10101010, 0b11111111, 0b0,
-		0b10101010, 0b11111111, 0b0,
-		0b10101010, 0b11111111, 0b0,
-		0b10101010, 0b11111111, 0b0,
-		0b10101010, 0b11111111, 0b0,
-		0b10101010, 0b11111111, 0b0,
-		0b10101010, 0b01101010, 0b01010101,
-	};
+	static inline std::array<uint8_t, 28u> SL {};
 
 	// Initialize VGA interface
 	static inline void init() {
@@ -96,19 +85,19 @@ public:
 		change_mode(&mPAL720x576_50Hz);
 	}
 
-	/// @brief reset vertical timer interrupt
+	/// @brief reset vertical timer interrupt register
 	static inline void vtim_reset() {
 		vsync_tim->INTFR = (uint16_t)(~TIM_IT_Update);
 	}
 
-	/// @brief reset horizontal timer interrupt
+	/// @brief reset horizontal timer interrupt register
 	static inline void htim_reset() {
 		hsync_tim->INTFR = (uint16_t)(~TIM_IT_Update);
 	}
 
 	/// @brief Allows to change modes to one of those predefined in VGAMode.hpp.
 	///			As GPIO max frequency is 30MHz, anything above 640x480 is 
-	///			unobtainable
+	///			unobtainable even theoretically.
 	/// @param _mode VGA interface mode
 	static inline void change_mode(const VGAMode* _mode) {
 		mode = _mode;
@@ -145,15 +134,31 @@ public:
 	/// @brief Checks whether current scanline is in displayable area of the screen
 	/// @return true or false
 	static inline bool is_displayable() {
-		uint16_t min = mode->vtim.spulse + mode->vtim.bporch + 5; // black border of 5 lines on top
-		uint16_t max = min + mode->vres - 10; // black border of 5 lines on bottom
+		uint16_t min = mode->vtim.spulse + mode->vtim.bporch + 15; // black border of 5 lines on top
+		uint16_t max = min + mode->vres - 30; // black border of 5 lines on bottom
 		return TIM1->CNT >= min && TIM1->CNT < max;
+	}
+
+	/// @brief Allows to decrease vertical resolution x2 by skipping the update
+	///			of scanline buffer on every odd timer counter value
+	/// @return true if current line should be updated, otherwise false
+	static inline bool doulbe_scan() {
+		uint16_t min = mode->vtim.spulse + mode->vtim.bporch + 15; // black border of 5 lines on top
+		return ((TIM1->CNT - min) & 0b1) == 0;
+	}
+
+	/// @brief Allows to decrease vertical resolution x4 by skipping the update
+	///			of scanline buffer on 3 of 4 counter ticks
+	/// @return true if current line should be updated, otherwise false
+	static inline bool quad_scan() {
+		uint16_t min = mode->vtim.spulse + mode->vtim.bporch + 15; // black border of 5 lines on top
+		return ((TIM1->CNT - min) & 0b11) == 0;
 	}
 
 	/// @brief Get current scanline index
 	/// @return uint16_t
 	static inline uint16_t line_idx() {
-		return TIM1->CNT - (mode->vtim.spulse + mode->vtim.bporch);
+		return TIM1->CNT - (mode->vtim.spulse + mode->vtim.bporch + 15);
 	}
 
 	/// @brief Get max amount of characters in a line for current resolution
@@ -170,8 +175,8 @@ public:
 
 	/// @brief Puts scanline on the screen
 	static inline void put_scanline() {
-		if (!is_displayable()) return ;
-		while(TIM2->CNT < hdelay) ;
+		// if (!is_displayable()) return ; // this is checked in interrupt handling routine
+		// while(TIM2->CNT < hdelay) ;
 		GPIOC->OUTDR = (~GPIO_Pin_2 | (SL[0] >> 6)); GPIOC->OUTDR = (~GPIO_Pin_2 | (SL[0] >> 5)); GPIOC->OUTDR = (~GPIO_Pin_2 | (SL[0] >> 4)); GPIOC->OUTDR = (~GPIO_Pin_2 | (SL[0] >> 3)); GPIOC->OUTDR = (~GPIO_Pin_2 | (SL[0] >> 2)); GPIOC->OUTDR = (~GPIO_Pin_2 | (SL[0] >> 1)); GPIOC->OUTDR = (~GPIO_Pin_2 | (SL[0])); GPIOC->OUTDR = (~GPIO_Pin_2 | (SL[0] << 1));
 		GPIOC->OUTDR = (~GPIO_Pin_2 | (SL[1] >> 6)); GPIOC->OUTDR = (~GPIO_Pin_2 | (SL[1] >> 5)); GPIOC->OUTDR = (~GPIO_Pin_2 | (SL[1] >> 4)); GPIOC->OUTDR = (~GPIO_Pin_2 | (SL[1] >> 3)); GPIOC->OUTDR = (~GPIO_Pin_2 | (SL[1] >> 2)); GPIOC->OUTDR = (~GPIO_Pin_2 | (SL[1] >> 1)); GPIOC->OUTDR = (~GPIO_Pin_2 | (SL[1])); GPIOC->OUTDR = (~GPIO_Pin_2 | (SL[1] << 1));
 		GPIOC->OUTDR = (~GPIO_Pin_2 | (SL[2] >> 6)); GPIOC->OUTDR = (~GPIO_Pin_2 | (SL[2] >> 5)); GPIOC->OUTDR = (~GPIO_Pin_2 | (SL[2] >> 4)); GPIOC->OUTDR = (~GPIO_Pin_2 | (SL[2] >> 3)); GPIOC->OUTDR = (~GPIO_Pin_2 | (SL[2] >> 2)); GPIOC->OUTDR = (~GPIO_Pin_2 | (SL[2] >> 1)); GPIOC->OUTDR = (~GPIO_Pin_2 | (SL[2])); GPIOC->OUTDR = (~GPIO_Pin_2 | (SL[2] << 1));
@@ -200,7 +205,5 @@ public:
 		GPIOC->OUTDR = (~GPIO_Pin_2 | (SL[25] >> 6)); GPIOC->OUTDR = (~GPIO_Pin_2 | (SL[25] >> 5)); GPIOC->OUTDR = (~GPIO_Pin_2 | (SL[25] >> 4)); GPIOC->OUTDR = (~GPIO_Pin_2 | (SL[25] >> 3)); GPIOC->OUTDR = (~GPIO_Pin_2 | (SL[25] >> 2)); GPIOC->OUTDR = (~GPIO_Pin_2 | (SL[25] >> 1)); GPIOC->OUTDR = (~GPIO_Pin_2 | (SL[25])); GPIOC->OUTDR = (~GPIO_Pin_2 | (SL[25] << 1));
 		GPIOC->OUTDR = (~GPIO_Pin_2 | (SL[26] >> 6)); GPIOC->OUTDR = (~GPIO_Pin_2 | (SL[26] >> 5)); GPIOC->OUTDR = (~GPIO_Pin_2 | (SL[26] >> 4)); GPIOC->OUTDR = (~GPIO_Pin_2 | (SL[26] >> 3)); GPIOC->OUTDR = (~GPIO_Pin_2 | (SL[26] >> 2)); GPIOC->OUTDR = (~GPIO_Pin_2 | (SL[26] >> 1)); GPIOC->OUTDR = (~GPIO_Pin_2 | (SL[26])); GPIOC->OUTDR = (~GPIO_Pin_2 | (SL[26] << 1));
 		GPIOC->OUTDR = (~GPIO_Pin_2 | (SL[27] >> 6)); GPIOC->OUTDR = (~GPIO_Pin_2 | (SL[27] >> 5)); GPIOC->OUTDR = (~GPIO_Pin_2 | (SL[27] >> 4)); GPIOC->OUTDR = (~GPIO_Pin_2 | (SL[27] >> 3)); GPIOC->OUTDR = (~GPIO_Pin_2 | (SL[27] >> 2)); GPIOC->OUTDR = (~GPIO_Pin_2 | (SL[27] >> 1)); GPIOC->OUTDR = (~GPIO_Pin_2 | (SL[27])); GPIOC->OUTDR = (~GPIO_Pin_2 | (SL[27] << 1));
-		GPIOC->OUTDR = (~GPIO_Pin_2 | (SL[28] >> 6)); GPIOC->OUTDR = (~GPIO_Pin_2 | (SL[28] >> 5)); GPIOC->OUTDR = (~GPIO_Pin_2 | (SL[28] >> 4)); GPIOC->OUTDR = (~GPIO_Pin_2 | (SL[28] >> 3)); GPIOC->OUTDR = (~GPIO_Pin_2 | (SL[28] >> 2)); GPIOC->OUTDR = (~GPIO_Pin_2 | (SL[28] >> 1)); GPIOC->OUTDR = (~GPIO_Pin_2 | (SL[28])); GPIOC->OUTDR = (~GPIO_Pin_2 | (SL[28] << 1));
-		GPIOC->OUTDR = (~GPIO_Pin_2 | (SL[29] >> 6)); GPIOC->OUTDR = (~GPIO_Pin_2 | (SL[29] >> 5)); GPIOC->OUTDR = (~GPIO_Pin_2 | (SL[29] >> 4)); GPIOC->OUTDR = (~GPIO_Pin_2 | (SL[29] >> 3)); GPIOC->OUTDR = (~GPIO_Pin_2 | (SL[29] >> 2)); GPIOC->OUTDR = (~GPIO_Pin_2 | (SL[29] >> 1)); GPIOC->OUTDR = (~GPIO_Pin_2 | (SL[29])); GPIOC->OUTDR = (~GPIO_Pin_2 | (SL[29] << 1));
 	}
 };
