@@ -19,6 +19,8 @@ Here is an overview from the manual showing the front side of the board once ful
 
 The RVPC contains elements of both THT and SMT soldering. Let's review the basics:
 
+### SMT
+
 - SMT means 'surface mount'
 	- A modern technique to aid automated assembly (pick and place)
 	- Components are typically placed on one side of the board only
@@ -28,6 +30,8 @@ The RVPC contains elements of both THT and SMT soldering. Let's review the basic
 	- Tweezers help!
 
 <img src="./IMAGES/soldering_SMT.jpg" width="50%">
+
+### THT
 
 - THT means 'through hole'
 	- An older technique but (arguably) easier for humans and for DIY
