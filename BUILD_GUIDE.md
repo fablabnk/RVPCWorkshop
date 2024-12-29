@@ -47,7 +47,7 @@ Now is a good time to open up the bag, familiarise yourself with each component 
 | Step | Number | Code | Description |
 |------|--------|------|-------------|
 | 1    | 1      | n/a   | Printed Circuit Board |
-| 2    | 1      | U1   | CH32V003J4M6(SOP8) |
+| 2    | 1      | U1   | CH32V003J4M6 Chip |
 | 3    | 1      | R7   | 100Ω Resistor BROWN-BLACK-BROWN-GOLD |
 | 4    | 3      | R2, R3, R4 | 470Ω Resistor YELLOW-PURPLE-BROWN |
 | 5    | 4      | R1, R5, R6, R8 | 2k Resistor RED-BLACK-RED-GOLD |
