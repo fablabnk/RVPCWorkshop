@@ -136,11 +136,11 @@ Here are some basic tips for working with a soldering iron. If you already have 
 
 In soldering, we like silver - not golden - rules!
 
-1. Apply the principle 'heat the place you want the solder to go'. Often this is both 'pad' and 'pin'.
-2. Not too little, not too much solder: too little and the connection won't be solid, too much and you risk bridging other components
-3. Solder should always 'fuse' to the pad, not ball up on top. If this happens, apply heat the the pad to encourage the solder the flow down in place
-4. Start with temperature low (e.g. 340°C) and turn up if needed: larger areas or thicker wire require more heat
-5. Snip away from you: when snipping off excess wire, aim the board away from you to avoid pinging yourself in the eye!
+1. __Apply the principle 'heat the place you want the solder to go'__. Often this is both 'pad' and 'pin'.
+2. __Not too little, not too much solder__: too little and the connection won't be solid, too much and you risk bridging other components
+3. __Solder should always 'fuse' to the pad, not ball up on top__. If this happens, apply heat the the pad to encourage the solder the flow down in place
+4. __Start with temperature low (e.g. 340°C) and turn up if needed__: larger areas or thicker wire require more heat
+5. __Snip away from you__: when snipping off excess wire, aim the board away from you to avoid pinging yourself in the eye!
 
 ### Technique
 
