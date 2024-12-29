@@ -13,7 +13,7 @@ To assemble our RVPC, we will follow the recommended order of assembly in the or
 
 Here is an overview from the manual showing the front side of the board once fully assembled, highlighting the key components:
 
-<img src="./IMAGES/overview.png" width="30%">
+<img src="./IMAGES/overview.png">
 
 ## Soldering techniques: THT vs SMT
 
@@ -27,14 +27,14 @@ The RVPC contains elements of both THT and SMT soldering. Let's review the basic
 	- Components can be very small (sneeze, you lose!)
 	- Tweezers help!
 
-<img src="./IMAGES/soldering_SMT.png" width="30%">
+<img src="./IMAGES/soldering_SMT.png">
 
 - THT means 'through hole'
 	- An older technique but (arguably) easier for humans and for DIY
 	- Components are inserted into holes on the front side of the board
 	- The actual soldering takes place on the opposite side
 	
-<img src="./IMAGES/soldering_THT.png" width="30%">
+<img src="./IMAGES/soldering_THT.png">
 
 ## Step 0: Getting Started Laying Out the Components 
 
@@ -74,21 +74,21 @@ Here is a summary Bill of Materials (BOM) of all the components of the RVPC, in 
 First take a good look at the PCB, to differentiate the front and back sides and identify where to place each component using the codes above. All components are placed on the front side of the board.
 
 Front side:
-<img src="./IMAGES/step0_pcb_front.jpg" width="30%">
+<img src="./IMAGES/step0_pcb_front.jpg">
 
 Back side:
-<img src="./IMAGES/step0_pcb_back.jpg" width="30%">
+<img src="./IMAGES/step0_pcb_back.jpg">
 
 ## Step 2: CH32V003 RISC-V Microcontroller Unit
 
-<img src="./IMAGES/step1_component.jpg" width="30%">
+<img src="./IMAGES/step1_component.jpg">
 
 - This is marked U1 on the board and it will be the brains of our PC
 - It is the trickiest element to solder correctly, because it's the smallest!
 - It is a surface-mount (SMT) component meaning it is soldered to the front side of the board only
 - Orientation of the chip _matters_. Match the small black circle on the chip with the white circle on the board
 
-<img src="./IMAGES/step1_component.jpg" width="30%">
+<img src="./IMAGES/step1_component.jpg">
 
 There are three ways solder this one, as described below. Whichever method you choose, it's good to have a pair of tweezers at hand to hold the chip in place. Working in pairs is also a good idea. If you have more experience, please help the others on your table to get this right!
 
@@ -96,8 +96,8 @@ There are three ways solder this one, as described below. Whichever method you c
 
 We have set up some hot plate in the room if you want to try this method. The process goes as follows:
 
-<img src="./IMAGES/step1_method1_hot_plate.jpg" width="30%">
-<img src="./IMAGES/step1_method1_solder_paste.jpg" width="30%">
+<img src="./IMAGES/step1_method1_hot_plate.jpg">
+<img src="./IMAGES/step1_method1_solder_paste.jpg">
 
 1. Using the syringe provided, place a small amount of solder paste on each of the U1 pads (silver areas)
 2. Place your RVPC circuit board on the hot plate, front-side up
@@ -161,16 +161,16 @@ If you're new to soldering, we suggest to go component-by-component. If you have
 
 ## Step 3: 100Ω Resistor
 
-<img src="./IMAGES/step2_led bend.jpg" width="30%">
+<img src="./IMAGES/step2_led bend.jpg">
 
-<img src="./IMAGES/step2_component.jpg" width="30%">
+<img src="./IMAGES/step2_component.jpg">
 
 - There is one of these, marked R7 on the board
 - The colour code on the resistor shows: BROWN-BLACK-BROWN-GOLD
 
 ## Step 4: 470Ω Resistor
 
-<img src="./IMAGES/step3_component.jpg" width="30%">
+<img src="./IMAGES/step3_component.jpg">
 
 - There are 3 of these, marked R2, R3 and R4 on the board
 - The colour code on each resistor shows: YELLOW-PURPLE-BROWN
@@ -178,7 +178,7 @@ If you're new to soldering, we suggest to go component-by-component. If you have
 
 ## Step 5: 2k Resistor
 
-<img src="./IMAGES/step4_component.jpg" width="30%">
+<img src="./IMAGES/step4_component.jpg">
 
 - There are 4 of these, marked R1, R5, R6 and R8 on the board
 - The colour code on each resistor shows: RED-BLACK-RED-GOLD
@@ -186,7 +186,7 @@ If you're new to soldering, we suggest to go component-by-component. If you have
 
 ## Step 6: 1N4148 Diode
 
-<img src="./IMAGES/step5_component.jpg" width="30%">
+<img src="./IMAGES/step5_component.jpg">
 
 - There is just one of these, marked D1 on the board.
 - Orientation here _does_ matter, the black line on the diode should align with
@@ -196,7 +196,7 @@ If you're new to soldering, we suggest to go component-by-component. If you have
 
 ## Step 7: 100nF Cermamic Capacitor
 
-<img src="./IMAGES/step6_component.jpg" width="30%">
+<img src="./IMAGES/step6_component.jpg">
 
 - There is just one of these, marked C1 on the board
 - It can be identified by the number 104 printed on it
@@ -204,28 +204,28 @@ If you're new to soldering, we suggest to go component-by-component. If you have
 
 ## Step 8: 2N3904 NPN Transistor
 
-<img src="./IMAGES/step7_component.jpg" width="30%">
+<img src="./IMAGES/step7_component.jpg">
 
 - There is just one of these, marked T1 on the board
 - Orientation here _does_ matter - insert the transistor to match silk screen marking on the board
 
 ## Step 9: 5mm Red LED
 
-<img src="./IMAGES/step8_component.jpg" width="30%">
+<img src="./IMAGES/step8_component.jpg">
 
 - There is just one of these, marked PWR_LED1 on the board
 - Orientation here _does_ matter, the longest leg should go through the round pad (closest to the side marked A)
 
 ## Step 10: Speaker
 
-<img src="./IMAGES/step9_component.jpg" width="30%">
+<img src="./IMAGES/step9_component.jpg">
 
 - There is just one of these, marked SPK1 on the board
 - Orientation here _does_ matter, the leg marked with a plus sign (+) should go to the corresponding hole also marked with a plus sign (square pad)
 
 ## Step 11: 2-pin Programming Header
 
-<img src="./IMAGES/step10_component.jpg" width="30%">
+<img src="./IMAGES/step10_component.jpg">
 
 - There is just one of these, marked PGM/DBG1 on the board
 - Orientation doesn't matter
@@ -233,7 +233,7 @@ If you're new to soldering, we suggest to go component-by-component. If you have
 
 ## Step 12: PS2 Keyboard Connector
 
-<img src="./IMAGES/step11_component.jpg" width="30%">
+<img src="./IMAGES/step11_component.jpg">
 
 - There is just one of these, marked PS2_KBD1 on the board
 - It can only be oriented one way
@@ -241,14 +241,14 @@ If you're new to soldering, we suggest to go component-by-component. If you have
 
 ## Step 13: VGA Connector
 
-<img src="./IMAGES/step12_component.jpg" width="30%">
+<img src="./IMAGES/step12_component.jpg">
 
 - There is just one of these, marked VGA1 on the board
 - It can only be oriented one way around
 
 ## Step 14: Power Jack Connector
 
-<img src="./IMAGES/step13_component.jpg" width="30%">
+<img src="./IMAGES/step13_component.jpg">
 
 There is just one of these, marked PWR_JACK1 on the board
 
