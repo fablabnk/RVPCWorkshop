@@ -81,14 +81,12 @@ First take a good look at the PCB, to differentiate the front and back sides and
 
 ## Step 2: CH32V003 RISC-V Microcontroller Unit
 
-<img src="./IMAGES/step1_component.jpg">
+<img src="./IMAGES/step1_component.jpg" width="30%">
 
 - This is marked U1 on the board and it will be the brains of our PC
 - It is the trickiest element to solder correctly, because it's the smallest!
 - It is a surface-mount (SMT) component meaning it is soldered to the front side of the board only
 - Orientation of the chip _matters_. Match the small black circle on the chip with the white circle on the board
-
-<img src="./IMAGES/step1_component.jpg">
 
 There are three ways solder this one, as described below. Whichever method you choose, it's good to have a pair of tweezers at hand to hold the chip in place. Working in pairs is also a good idea. If you have more experience, please help the others on your table to get this right!
 
@@ -96,8 +94,8 @@ There are three ways solder this one, as described below. Whichever method you c
 
 We have set up some hot plate in the room if you want to try this method. The process goes as follows:
 
-<img src="./IMAGES/step1_method1_hot_plate.jpg">
-<img src="./IMAGES/step1_method1_solder_paste.jpg">
+<img src="./IMAGES/step1_method1_hot_plate.jpg" width="30%">
+<img src="./IMAGES/step1_method1_solder_paste.jpg" width="30%">
 
 1. Using the syringe provided, place a small amount of solder paste on each of the U1 pads (silver areas)
 2. Place your RVPC circuit board on the hot plate, front-side up
@@ -150,8 +148,11 @@ In soldering, we like silver - not golden - rules!
 
 For all the rest of the steps we will follow the same process
 
-1.  Insert the component into the marked place on the front side of the board
+1. Insert the component into the marked place on the front side of the board
 2. Flip the board and bend wires/pins back at 45 degrees to keep in place
+
+<img src="./IMAGES/step2_leg_bend.jpg">
+
 3. Solder one of the pins/wires to the silver solder pad
 4. Flip the board and check for flushness - correct this now if there are any issues
 5. Solder the remaining pins/wires
@@ -160,8 +161,6 @@ For all the rest of the steps we will follow the same process
 If you're new to soldering, we suggest to go component-by-component. If you have more experience, you may wish to place, solder and snip more components at one time.
 
 ## Step 3: 100Ω Resistor
-
-<img src="./IMAGES/step2_led bend.jpg">
 
 <img src="./IMAGES/step2_component.jpg">
 
