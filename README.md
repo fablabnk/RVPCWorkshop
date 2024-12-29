@@ -1,8 +1,4 @@
 
-
-# About the Workshop
-
-
 # About the RVPC project
 
 https://github.com/OLIMEX/RVPC
@@ -11,10 +7,13 @@ The Olimex Risc-V personal computer with VGA and Keyboard and Woz like monitor. 
 
 <img src="DOCUMENTS/RVPC-1.jpg" height=200>
 
- 1. Build Guide show how to solder the RVPC
+# About the Workshop / this guide
+
+three parts 
+
+ 1. Build guide to show how to solder the RVPC
  2. Flashing alternative firmware to the CH32V003 chip using a Raspberry Pi Pico
  3. Code example for writing other display code
-
 
 # RVPC Build Guide
 
@@ -26,7 +25,9 @@ Here is a photo showing the front side of the board once fully completed, highli
 
 ## Getting Started: Laying Out the Components 
 
-Here is a summary - or Bill of Materials (BOM) - of all the components of the RVPC, in the recommended order of assembly that we will cover below
+Here is a summary - or Bill of Materials (BOM) - of all the components of the RVPC, in the recommended order of assembly.
+
+open up the bag, familiarise yourself with each component and check everything is there 
 
 [table]
 
@@ -52,13 +53,15 @@ Here is a summary - or Bill of Materials (BOM) - of all the components of the RV
 <img src="./IMAGES/step0_pcb_front.jpg" width="30%">
 <img src="./IMAGES/step0_pcb_back.jpg" width="30%">
 
-This is where
+This is 
 
 ## Step 1: CH32V003 RISC-V Microcontroller Unit (MCU)
 
 <img src="./IMAGES/step1_component.jpg" width="30%">
 
 There is just one of these, marked U1 on the board and it will be the brains of our PC.
+
+Orientation is important
 
 This first component of the build is also perhaps the trickiest one to solder correctly. Not only does it have the smallest legs, it also differs from the others because it is a surface-mount (SMT) not through-hole (THT) component, meaning it is soldered to to front side of the board only.
 
@@ -86,7 +89,7 @@ This is another alternative to try, which we don't have at the congress, sadly..
 
 ## Step 2: 100R Resistor
 
-Congratulations, from here on in it gets easier! The rest of the components in the build are all through-hole and a bit more human-friendly to work with. We insert them by
+Congratulations, from here on in it gets easier! All the rest of the components in the build are through-hole (THT) and a bit more human-friendly to work with. We insert them by
 
 1. Placing their legs through the holes on the front side of the board
 	- front side is the one which has graphics of the components themselves
