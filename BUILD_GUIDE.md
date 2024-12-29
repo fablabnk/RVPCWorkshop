@@ -72,14 +72,14 @@ Now is a good time to open up the bag, familiarise yourself with each component 
 First take a good look at the PCB, to differentiate the front and back sides and identify where to place each component using the codes above. All components are placed on the front side of the board.
 
 ### Front side:
-<img src="./IMAGES/step0_pcb_front.jpg" width="30%">
+<img src="./IMAGES/step0_pcb_front.jpg">
 
 ### Back side:
-<img src="./IMAGES/step0_pcb_back.jpg" width="30%">
+<img src="./IMAGES/step0_pcb_back.jpg">
 
 ## Step 2: CH32V003 RISC-V Microcontroller Unit
 
-<img src="./IMAGES/step1_component.jpg" width="30%">
+<img src="./IMAGES/step1_component.jpg">
 
 - This is marked U1 on the board and it will be the brains of our PC
 - It is the trickiest element to solder correctly, because it's the smallest!
@@ -92,8 +92,8 @@ There are three ways solder this one, as described below. Whichever method you c
 
 We have set up some hot plate in the room if you want to try this method. The process goes as follows:
 
-<img src="./IMAGES/step1_method1_hot_plate.jpg" width="30%">
-<img src="./IMAGES/step1_method1_solder_paste.jpg" width="30%">
+<img src="./IMAGES/step1_method1_hot_plate.jpg">
+<img src="./IMAGES/step1_method1_solder_paste.jpg">
 
 1. Using the syringe provided, place a small amount of solder paste on each of the U1 pads (silver areas)
 2. Place your RVPC circuit board on the hot plate, front-side up
