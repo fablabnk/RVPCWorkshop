@@ -1,15 +1,13 @@
-# RVPC Build Guide
-
-To assemble our RVPC, we will follow the recommended order of assembly in the original [user manual](./DOCUMENTS/RVPC-user-manual.pdf), adding a few extra clarifications, photos and tips.
-
-[photo of RVPC workshop]
-
-## Rough Schedule
+# Rough Schedule
 
 1. Introduction (10 minutes)
 2. SMD soldering of the RISCV chip (20 minutes)
 3. Through hole soldering of all other components (45 minutes)
 4. Testing and flashing (15 minutes)
+
+# Build Guide
+
+To assemble our RVPC, we will follow the recommended order of assembly in the original [user manual](./DOCUMENTS/RVPC-user-manual.pdf), adding a few extra clarifications, photos and tips.
 
 Here is an overview from the manual showing the front side of the board once fully assembled, highlighting the key components:
 
