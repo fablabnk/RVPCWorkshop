@@ -9,7 +9,6 @@ CH32V003 chip using a Raspberry Pi Pico and gdb
 
 You will need a Raspberry Pi with pin headers. We used a (Pico 1)[https://www.raspberrypi.com/documentation/microcontrollers/pico-series.html#pico-1-technical-specification]
 
-
 # Flashing / Programming
 
 ## Wiring
