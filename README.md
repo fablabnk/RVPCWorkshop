@@ -1,6 +1,6 @@
 # About the RVPC project
 
-The [Olimex RVPC](https://github.com/OLIMEX/RVPC) is modern RISC-V mini-computer with retro VGA monitor and PS/2 keyboard connection. It is an educational platform which people can use to learn RISC-V assembler and experiment like in the old days in 1980s :) We are using it in the fablab of our coding school (42 Berlin)[https://www.42berlin.de] as a low-cost way to teach open hardware, soldering and to create monochrome info-display screens at the congress.
+The [Olimex RVPC](https://github.com/OLIMEX/RVPC) is modern RISC-V mini-computer with retro VGA monitor and PS/2 keyboard connection. It is an educational platform which people can use to learn RISC-V assembler and experiment like in the old days in 1980s :) We are using it in the fablab of our coding school [42 Berlin](https://www.42berlin.de) as a low-cost way to teach open hardware, soldering and to create monochrome info display screens at the congress.
 
 <img src="DOCUMENTS/RVPC-1.jpg" height=200>
 
