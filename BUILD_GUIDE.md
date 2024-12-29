@@ -27,7 +27,7 @@ The RVPC contains elements of both THT and SMT soldering. Let's review the basic
 	- Components can be very small (sneeze, you lose!)
 	- Tweezers help!
 
-<img src="./IMAGES/soldering_SMT.jpg" width="50%">
+<img src="./IMAGES/soldering_SMT.jpg">
 
 ### THT
 
@@ -36,7 +36,7 @@ The RVPC contains elements of both THT and SMT soldering. Let's review the basic
 	- Components are inserted into holes on the front side of the board
 	- The actual soldering takes place on the opposite side
 	
-<img src="./IMAGES/soldering_THT.jpg" width="50%">
+<img src="./IMAGES/soldering_THT.jpg">
 
 ## Step 0: Getting Started Laying Out the Components 
 
