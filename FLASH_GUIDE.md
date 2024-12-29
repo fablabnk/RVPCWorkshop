@@ -5,13 +5,17 @@ is recommended.
 Here we describe a method to build and flash any of the demo RVPC firmwares onto the 
 CH32V003 chip using a Raspberry Pi Pico and gdb
 
-# Wiring
+# Flashing / Programming
+
+## Wiring
 
 - Connect Pico's SWIO pin (pin GP28, physical pin 34 on my Pico 1) to RVPC PGM pin 
 - Connect a Pico GND pin to RVPC GND pin
 - Power RVPC as normal by providing 5V on barrel jack connector (e.g. USB to barrel jack converter)
 
-# Preparing to Flash
+<img src="./IMAGES/pico_programmer.jpg" width="30%">
+
+## Programming Procedure
 
 - download the picorvd .uf2 firmware from our repo [here](./PROGRAMMER/picorvd.uf2).
 - NOTE: the original firmware can be found in the Actions tab of the original picorvd repo [here](https://github.com/aappleby/picorvd/actions). Click on the first entry in the list (for example) and scroll to the bottom of the page. However, recently when I checked there it was marked as 'expired'
@@ -29,16 +33,11 @@ CH32V003 chip using a Raspberry Pi Pico and gdb
 - click PlatformIO icon (alien/ant head) and under Project Tasks -> RVPC -> General, click the Build task
 - back in the VS Code file explorer, firmware.elf should be found in ./pio/build/RVPC
 - right click and choose 'open containing folder', then right click again in blank space and choose 'open in terminal'
-
-# Flashing
-
 - power cycle the RVPC
 - power cycle the Pico
 - flash from the terminal using the command: `gdb-multiarch -ex 'target extended-remote /dev/ttyACM0' -ex 'load' -ex 'detach' -ex 'quit' "firmware.elf"`
 
-# Debugging
-
-
+# Debugging the firmware:
 
  - (optionally) add initial breakpoint programmatically (usually at the start of the main function):
     ```
