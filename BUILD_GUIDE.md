@@ -42,15 +42,11 @@ The RVPC contains elements of both THT and SMT soldering. Let's review the basic
 
 ## Step 0: Getting Started Laying Out the Components 
 
-Now is a good time to open up the bag, familiarise yourself with each component and check everything is there.
-
-Here is a summary Bill of Materials (BOM) of all the components of the RVPC, in the recommended order of assembly:
-
-[table]
+Now is a good time to open up the bag, familiarise yourself with each component and check everything is there. Here is a summary Bill of Materials (BOM) of all the components of the RVPC, in the recommended order of assembly:
 
 | Step | Number | Code | Description |
 |------|--------|------|-------------|
-| 1    | 1      | --   | Printed Circuit Board |
+| 1    | 1      | n/a   | Printed Circuit Board |
 | 2    | 1      | U1   | CH32V003J4M6(SOP8) |
 | 3    | 1      | R7   | 100Ω Resistor BROWN-BLACK-BROWN-GOLD |
 | 4    | 3      | R2, R3, R4 | 470Ω Resistor YELLOW-PURPLE-BROWN |
@@ -78,10 +74,10 @@ Here is a summary Bill of Materials (BOM) of all the components of the RVPC, in 
 First take a good look at the PCB, to differentiate the front and back sides and identify where to place each component using the codes above. All components are placed on the front side of the board.
 
 Front side:
-<img src="./IMAGES/step0_pcb_front.jpg">
+<img src="./IMAGES/step0_pcb_front.jpg" width="30%">
 
 Back side:
-<img src="./IMAGES/step0_pcb_back.jpg">
+<img src="./IMAGES/step0_pcb_back.jpg" width="30%">
 
 ## Step 2: CH32V003 RISC-V Microcontroller Unit
 
