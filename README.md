@@ -1,14 +1,15 @@
-# FabLab|NK Chaos Communication Congress (38C3) workshop for [OLIMEX RVPC](https://github.com/OLIMEX/RVPC) project
+# FabLab|NK Chaos Communication Congress (38C3) workshop for [OLIMEX RVPC]() project
 
 ### Workshop includes
- - soldering the RVPC
- - creating a CH32V003 programmer using a Raspberry Pi Pico
- - writing a program for the RVPC
- - flashing the program to the RVPC
+ 1. Soldering the RVPC
+ 2. Flashing alternative firmware to the CH32V003 chip using a Raspberry Pi Pico
+ 3. Writing other display code (with example)
 
 ## About the RVPC project
 
-The EURO 1.00 Risc-V personal computer with VGA and Keyboard and Woz like monitor. The purpose of this project is to make educational platform which people can use to learn RISCV assembler and experiment like in the old days in 1980s :)
+https://github.com/OLIMEX/RVPC
+
+The Olimex Risc-V personal computer with VGA and Keyboard and Woz like monitor. The purpose of this project is to make educational platform which people can use to learn RISCV assembler and experiment like in the old days in 1980s :)
 
 <img src="DOCUMENTS/RVPC-1.jpg" height=200>
 
