@@ -73,10 +73,10 @@ Now is a good time to open up the bag, familiarise yourself with each component 
 
 First take a good look at the PCB, to differentiate the front and back sides and identify where to place each component using the codes above. All components are placed on the front side of the board.
 
-Front side:
+### Front side:
 <img src="./IMAGES/step0_pcb_front.jpg" width="30%">
 
-Back side:
+### Back side:
 <img src="./IMAGES/step0_pcb_back.jpg" width="30%">
 
 ## Step 2: CH32V003 RISC-V Microcontroller Unit
