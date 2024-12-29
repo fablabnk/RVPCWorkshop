@@ -1,25 +1,17 @@
-# FabLab|NK Chaos Communication Congress (38C3) workshop for [OLIMEX RVPC]() project
 
-### Workshop includes
- 1. Soldering the RVPC
+
+# About the Workshop
+ 1. Build Guide show how to solder the RVPC
  2. Flashing alternative firmware to the CH32V003 chip using a Raspberry Pi Pico
- 3. Writing other display code (with example)
+ 3. Code example for writing other display code
 
-## About the RVPC project
+# About the RVPC project
 
 https://github.com/OLIMEX/RVPC
 
 The Olimex Risc-V personal computer with VGA and Keyboard and Woz like monitor. The purpose of this project is to make educational platform which people can use to learn RISCV assembler and experiment like in the old days in 1980s :)
 
 <img src="DOCUMENTS/RVPC-1.jpg" height=200>
-
-### Licensee
-* Hardware is released under CERN Open Hardware Licence Version 2 - Strongly Reciprocal
-* Software is released under GPL V3 Licensee
-* Documentation is released under CC BY-SA 4.0
-
-## Soldering the RVPC
-For soldering RVPC follow the [User Manual](https://github.com/fablabnk/RVPCWorkshop/blob/main/DOCUMENTS/RVPC-user-manual.pdf), which includes billof materials, pcb layout and some instructions
 
 # RVPC Build Guide
 
@@ -29,9 +21,9 @@ Here is a photo showing the front side of the board once fully completed, highli
 
 <img src="./IMAGES/overview.png width="30%">
 
-## Bill of Materials (BOM)
+## Getting Started: Laying Out the Components 
 
-Here is a summary of all the components of the RVPC, in the recommended order of assembly that we will cover below
+Here is a summary - or Bill of Materials (BOM) - of all the components of the RVPC, in the recommended order of assembly that we will cover below
 
 [table]
 
@@ -56,6 +48,8 @@ Here is a summary of all the components of the RVPC, in the recommended order of
 
 <img src="./IMAGES/step0_pcb_front.jpg" width="30%">
 <img src="./IMAGES/step0_pcb_back.jpg" width="30%">
+
+This is where
 
 ## Step 1: CH32V003 RISC-V Microcontroller Unit (MCU)
 
