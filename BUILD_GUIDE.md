@@ -144,14 +144,14 @@ In soldering, we like silver - not golden - rules!
 
 ### Technique
 
-For all the rest of the steps we will follow the same process
+For all the rest of the steps we will follow the same basic process, described below:
 
 1. Insert the component into the marked place on the front side of the board
 2. Flip the board and bend wires/pins back at 45 degrees to keep in place
 
 <img src="./IMAGES/step2_leg_bend.jpg">
 
-3. Solder one of the pins/wires to the silver solder pad
+3. Solder one of the pins/wires to one of the silver solder pads
 4. Flip the board and check for flushness - correct this now if there are any issues
 5. Solder the remaining pins/wires
 6. Snip off any excess wires, taking care to point the board away from you
@@ -225,7 +225,6 @@ If you're new to soldering, we suggest to go component-by-component. If you have
 <img src="./IMAGES/step10_component.jpg">
 
 - There is just one of these, marked PGM/DBG1 on the board
-- Orientation doesn't matter
 - Be sure to solder it to the front side, the same as all other components
 
 ## Step 12: PS2 Keyboard Connector
@@ -234,7 +233,7 @@ If you're new to soldering, we suggest to go component-by-component. If you have
 
 - There is just one of these, marked PS2_KBD1 on the board
 - It can only be oriented one way
-- The larger pins at either side are mounting pins, so don't strictly need solder to function electrically, but it helps for stability
+- The larger pins at either side are mounting pins, so don't strictly need to be soldered to function, but it helps for stability
 
 ## Step 13: VGA Connector
 
@@ -247,7 +246,8 @@ If you're new to soldering, we suggest to go component-by-component. If you have
 
 <img src="./IMAGES/step13_component.jpg">
 
-There is just one of these, marked PWR_JACK1 on the board
+- There is just one of these, marked PWR_JACK1 on the board
+- Bend the 'pins' over and apply quite a lot of solder around each pad. It's important this one is strongly connected as it will be bent around a lot
 
 ## Step 15: Setting the Display Colour
 
