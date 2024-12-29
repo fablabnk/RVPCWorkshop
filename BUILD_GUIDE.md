@@ -249,16 +249,16 @@ If you're new to soldering, we suggest to go component-by-component. If you have
 
 There is just one of these, marked PWR_JACK1 on the board
 
-## Step 15: Bridging
+## Step 15: Setting the Display Colour
 
 - On the back side of the board, close to the VGA connector, you will see three pairs of small pads
 - These define the colour of image on the screen (monochrome)
-- If you don't connect at least one of these pairs, nothing will diplays
+- At least one of these pairs of pads needs to be bridged with solder. Apply solder to one pad, then the other, then some inbetween
 - In our experience, more than one can set of pads can be bridged to get secondary colours
 
 ## Step 16: First test
 
-You can test your RVPC with the display and power cable you have been given. If you want to flash it, we have also set up one flashing station.
+You can test your RVPC with the display and power cable you have been given. If you want to flash it, we have also set up one flashing station
 
 - Be sure to use a 5V USB power bank or phone charger and a USB to barrel jack cable, not a higher voltage standard power supply!
 
