@@ -5,6 +5,11 @@ is recommended.
 Here we describe a method to build and flash any of the demo RVPC firmwares onto the 
 CH32V003 chip using a Raspberry Pi Pico and gdb
 
+# Programming using Raspberry Pi Pico
+
+You will need a Raspberry Pi with pin headers. We used a (Pico 1)[https://www.raspberrypi.com/documentation/microcontrollers/pico-series.html#pico-1-technical-specification]
+
+
 # Flashing / Programming
 
 ## Wiring
