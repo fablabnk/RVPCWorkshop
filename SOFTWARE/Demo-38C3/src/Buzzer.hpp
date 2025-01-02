@@ -32,6 +32,7 @@ SOFTWARE.
 #include "Sound.hpp"
 
 /// @brief Buzzes
+/// TODO: 1 add timer interrupt for cases when no other interrupts are set
 class Buzzer {
 private:
 	// 0 and 1 in a readable form
@@ -43,7 +44,14 @@ private:
 		buzz(1047, 50);
 		buzz(1397, 50);
 	}
-	static inline bool is_init = false;
+	static inline bool	is_init = false;
+
+	// chord/pwm related
+	static inline Chord*			chords = nullptr;
+	static inline uint16_t			chord_qty = 0;
+	static inline bool				loop = false;
+	static inline bool				reset = false;		// mark current chord-set to be removed
+	static inline uint16_t			current = 0;		// current chord index
 public:
 	/// @brief Only static members, no need to initialize
 	Buzzer() = delete;
@@ -82,12 +90,60 @@ public:
 		TimeoutMs timeout(sound.t);
 		while (!timeout) {
 			pin_state = !pin_state;         // flip pin state
-			Delay::us(sound.hp);
+			Delay::us(sound.hps);
 			if (pin_state == PinState::Hi) {
 				GPIOC->BSHR = GPIO_Pin_4;   // pin_state set
 			} else {
 				GPIOC->BCR = GPIO_Pin_4;    // pin_state unset
 			}
+		}
+	}
+
+	/// @brief Play chords based on timer interrupt.
+	/// @param chords_	Chord* array of chords to be played
+	/// @param qty_	uint16_t length of the chords array
+	/// @param loop_	bool repeat?
+	static void play_int(Chord* chords_, uint16_t qty_, bool loop_) {
+		current = 0;
+		chord_qty = qty_;
+		chords = chords_;
+		loop = loop_;
+	}
+
+	/// @brief Stop playback of the current chord array on the next interrupt
+	static void stop_int() {
+		reset = true; // interrupt_callback() will do the rest
+	}
+
+	/// @brief Add this callback into a timer interrupt handler (ISR) to handle
+	///			polyphony. In RVPC project there is an interrupt for
+	///			horizontal synchronisation of VGA interface which conveniently
+	///			triggers at ~30kHz. It is lower than 44.1 kHz sample rate used
+	///			in CD audio playback, but good enough for a buzzer.
+	static void interrupt_callback() {
+		if (chords == nullptr || chord_qty == 0) return ;	// there is nothing to play
+		if (reset == true) {								// current chord-set was marked for removal
+			chords = nullptr;
+			chord_qty = 0;
+			current = 0;
+			loop = false;
+			return ;
+		}
+		if (chords[current].is_expired()) { // current chord expired
+			++current;
+			if (current >= chord_qty) {		// out of range
+				if (!loop) {				// no loop required
+					reset = true;
+					return;
+				}
+				current = 0;				// start from the beginning
+			}
+			chords[current].renew();
+		}
+		if (chords[current].pwm() == true) {
+			GPIOC->BSHR = GPIO_Pin_4;   	// pin_state set
+		} else {
+			GPIOC->BCR = GPIO_Pin_4;    	// pin_state unset
 		}
 	}
 };

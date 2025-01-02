@@ -27,8 +27,8 @@ private:
 		{"          FABLAB|NK        "},
 		{},
 		{},
-		{},
-		{"    GiTHUB.COM/FABLABNK    "},
+		{"    GiTHUB.COM/FABLABNK/   "},
+		{"        RVPCWORKSHOP       "}
 		};
 public:
 
