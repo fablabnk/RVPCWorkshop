@@ -38,6 +38,10 @@ int main(void) {
 	Buzzer::init();			// initialize buzzer
 	VGA::init();			// initialize VGA
 
+	std::array<Chord, 2> test {
+		Chord({Note::C4, Note::E4, Note::G4},Len::x1), 
+		Chord({Note::C4, Note::Es4, Note::G4},Len::x1), };
+	Buzzer::play_int(test.data(), test.size(), true);
 	App::run();
 }
 
@@ -79,6 +83,7 @@ void TIM2_IRQHandler(void) {
 		VGA::put_scanline();						// put every displayable scanline
 	}
 	GPIOC->OUTDR &= (~GPIO_Pin_2);
+	Buzzer::interrupt_callback();							// plays chords if they're set
 	VGA::htim_reset();
 }
 

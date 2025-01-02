@@ -33,58 +33,57 @@ SOFTWARE.
 // Add application logic here
 void App::update_frame() {
 	volatile char c = Keyboard::ascii(Keyboard::wait_any());
-	// Buzzer::play(Sound::create(Note::C, 6, Len::_32));
 	switch (c) {
 		case 'Z':
 		case 'z':
-			Buzzer::play(Sound::create(Note::C, 5, Len::_32));
+			Buzzer::play(Sound::create(Note::C5, Len::_32));
 			break;
 		case 'S':
 		case 's':
-			Buzzer::play(Sound::create(Note::Cis, 5, Len::_32));
+			Buzzer::play(Sound::create(Note::Cis5, Len::_32));
 			break;
 		case 'X':
 		case 'x':
-			Buzzer::play(Sound::create(Note::D, 5, Len::_32));
+			Buzzer::play(Sound::create(Note::D5, Len::_32));
 			break;
 		case 'D':
 		case 'd':
-			Buzzer::play(Sound::create(Note::Dis, 5, Len::_32));
+			Buzzer::play(Sound::create(Note::Dis5, Len::_32));
 			break;
 		case 'C':
 		case 'c':
-			Buzzer::play(Sound::create(Note::E, 5, Len::_32));
+			Buzzer::play(Sound::create(Note::E5, Len::_32));
 			break;
 		case 'V':
 		case 'v':
-			Buzzer::play(Sound::create(Note::F, 5, Len::_32));
+			Buzzer::play(Sound::create(Note::F5, Len::_32));
 			break;
 		case 'G':
 		case 'g':
-			Buzzer::play(Sound::create(Note::Fis, 5, Len::_32));
+			Buzzer::play(Sound::create(Note::Fis5, Len::_32));
 			break;
 		case 'B':
 		case 'b':
-			Buzzer::play(Sound::create(Note::G, 5, Len::_32));
+			Buzzer::play(Sound::create(Note::G5, Len::_32));
 			break;
 		case 'H':
 		case 'h':
-			Buzzer::play(Sound::create(Note::Gis, 5, Len::_32));
+			Buzzer::play(Sound::create(Note::Gis5, Len::_32));
 			break;
 		case 'N':
 		case 'n':
-			Buzzer::play(Sound::create(Note::A, 5, Len::_32));
+			Buzzer::play(Sound::create(Note::A5, Len::_32));
 			break;
 		case 'J':
 		case 'j':
-			Buzzer::play(Sound::create(Note::Ais, 5, Len::_32));
+			Buzzer::play(Sound::create(Note::Ais5, Len::_32));
 			break;
 		case 'K':
 		case 'k':
-			Buzzer::play(Sound::create(Note::B, 5, Len::_32));
+			Buzzer::play(Sound::create(Note::B5, Len::_32));
 			break;
 		default:
-			Buzzer::play(Sound::pause(Len::_32));
+			Buzzer::play(Sound::create(Note::Pause, Len::_32));
 			break;
 	}
 }
@@ -111,84 +110,150 @@ void App::update_scanline(uint16_t line_idx) {
 	VGA::SL[26] = gC[framebuf[fi][26]][ci]; VGA::SL[27] = gC[framebuf[fi][27]][ci];
 }
 
-
-void play_5th_symphony() {
-			Buzzer::play(Sound::pause(Len::_8));
-		Buzzer::play(Sound::create(Note::G, 4, Len::_8));
-		Buzzer::play(Sound::create(Note::G, 4, Len::_8));
-		Buzzer::play(Sound::create(Note::G, 4, Len::_8));
-// ----
-		Buzzer::play(Sound::create(Note::Es, 4, Len::_2));
-// ----
-		Buzzer::play(Sound::pause(Len::_8));
-		Buzzer::play(Sound::create(Note::F, 4, Len::_8));
-		Buzzer::play(Sound::create(Note::F, 4, Len::_8));
-		Buzzer::play(Sound::create(Note::F, 4, Len::_8));
-// ----
-		Buzzer::play(Sound::create(Note::D, 4, Len::_2));
-// ----
-		Buzzer::play(Sound::pause(Len::_8));
-		Buzzer::play(Sound::create(Note::G, 4, Len::_8));
-		Buzzer::play(Sound::create(Note::G, 4, Len::_8));
-		Buzzer::play(Sound::create(Note::G, 4, Len::_8));
-// ----
-		Buzzer::play(Sound::create(Note::Es, 4, Len::_8));
-		Buzzer::play(Sound::create(Note::As, 4, Len::_8));
-		Buzzer::play(Sound::create(Note::As, 4, Len::_8));
-		Buzzer::play(Sound::create(Note::As, 4, Len::_8));
-// ----
-		Buzzer::play(Sound::create(Note::G, 4, Len::_8));
-		Buzzer::play(Sound::create(Note::Es, 5, Len::_8));
-		Buzzer::play(Sound::create(Note::Es, 5, Len::_8));
-		Buzzer::play(Sound::create(Note::Es, 5, Len::_8));
-// ----
-		Buzzer::play(Sound::create(Note::C, 5, Len::_2));
-// ----
-		Buzzer::play(Sound::pause(Len::_8));
-		Buzzer::play(Sound::create(Note::G, 4, Len::_8));
-		Buzzer::play(Sound::create(Note::G, 4, Len::_8));
-		Buzzer::play(Sound::create(Note::G, 4, Len::_8));
-// ----
-		Buzzer::play(Sound::create(Note::D, 4, Len::_8));
-		Buzzer::play(Sound::create(Note::As, 4, Len::_8));
-		Buzzer::play(Sound::create(Note::As, 4, Len::_8));
-		Buzzer::play(Sound::create(Note::As, 4, Len::_8));
-// ----
-		Buzzer::play(Sound::create(Note::G, 4, Len::_8));
-		Buzzer::play(Sound::create(Note::F, 5, Len::_8));
-		Buzzer::play(Sound::create(Note::F, 5, Len::_8));
-		Buzzer::play(Sound::create(Note::F, 5, Len::_8));
-// ----
-		Buzzer::play(Sound::create(Note::D, 5, Len::_2));
-// ----
-		Buzzer::play(Sound::pause(Len::_8));
-		Buzzer::play(Sound::create(Note::G, 5, Len::_8));
-		Buzzer::play(Sound::create(Note::G, 5, Len::_8));
-		Buzzer::play(Sound::create(Note::F, 5, Len::_8));
-// ----
-		Buzzer::play(Sound::create(Note::Es, 5, Len::_2));
-// ----
-		Buzzer::play(Sound::pause(Len::_8));
-		Buzzer::play(Sound::create(Note::G, 5, Len::_8));
-		Buzzer::play(Sound::create(Note::G, 5, Len::_8));
-		Buzzer::play(Sound::create(Note::F, 5, Len::_8));
-// ----
-		Buzzer::play(Sound::create(Note::Es, 5, Len::_2));
-// ----
-		Buzzer::play(Sound::pause(Len::_8));
-		Buzzer::play(Sound::create(Note::G, 5, Len::_8));
-		Buzzer::play(Sound::create(Note::G, 5, Len::_8));
-		Buzzer::play(Sound::create(Note::F, 5, Len::_8));
-// ----
-		Buzzer::play(Sound::create(Note::Es, 5, Len::_8));
-		Buzzer::play(Sound::pause(Len::_8));
-		Buzzer::play(Sound::pause(Len::_4));
-// ----
-		Buzzer::play(Sound::create(Note::C, 5, Len::_8));
-		Buzzer::play(Sound::pause(Len::_8));
-		Buzzer::play(Sound::pause(Len::_4));
-// ----
-		Buzzer::play(Sound::create(Note::G, 5, Len::_2));
-		Delay::ms(100);
+// non-blocking polyphony mode - uses horisontal synchronization interrupt set
+// by VGA to update buzzer pin state at ~32kHz (depending on selected VGA mode)
+std::array<Chord, 57> gMarioIntro {
+	Chord({Note::D3, Note::Fis3, Note::E5}, Len::_16),
+	Chord({}, Len::_16), // pause
+	Chord({Note::D3, Note::Fis3, Note::E5}, Len::_16),
+	Chord({}, Len::_16), // pause
+	Chord({}, Len::_8), // pause
+	Chord({Note::D3, Note::Fis3, Note::E5}, Len::_16),
+	Chord({}, Len::_16), // pause
+	Chord({}, Len::_8), // pause
+	Chord({Note::D3, Note::Fis3, Note::C5}, Len::_16),
+	Chord({}, Len::_16), // pause
+	Chord({Note::D3, Note::Fis3, Note::E5}, Len::_16),
+	Chord({}, Len::_16), // pause
+	Chord({}, Len::_8), // pause
+	// ========
+	Chord({Note::G3, Note::B3, Note::G5}, Len::_16),
+	Chord({}, Len::_16), // pause
+	Chord({}, Len::_8), // pause
+	Chord({}, Len::_4), // pause
+	Chord({Note::D3, Note::G3, Note::G4}, Len::_16),
+	Chord({}, Len::_16), // pause
+	Chord({}, Len::_8), // pause
+	Chord({}, Len::_4), // pause
+	// ========
+	Chord({Note::G3, Note::G4, Note::C5}, Len::_16),
+	Chord({}, Len::_16), // pause
+	Chord({}, Len::_8), // pause
+	Chord({}, Len::_8), // pause
+	Chord({Note::E3, Note::E4, Note::G4}, Len::_16),
+	Chord({}, Len::_16), // pause
+	Chord({}, Len::_4), // pause
+	Chord({Note::C3, Note::C4, Note::E4}, Len::_16),
+	Chord({}, Len::_16), // pause
+	Chord({}, Len::_8), // pause
+	// ========
+	Chord({}, Len::_8), // pause
+	Chord({Note::F3, Note::C4, Note::A4}, Len::_4),
+	Chord({Note::G3, Note::D4, Note::B4}, Len::_4),
+	Chord({Note::Ges3, Note::Des4, Note::Bes4}, Len::_8),
+	Chord({Note::F3, Note::C4, Note::A4}, Len::_4),
+	// ========
+	Chord({Note::E3, Note::E4, Note::G4}, Len::_16),
+	Chord({}, Len::_16), // pause
+	Chord({}, Len::_8), // pause
+	Chord({Note::C4, Note::C5, Note::E5}, Len::_16),
+	Chord({}, Len::_16), // pause
+	Chord({}, Len::_8), // pause
+	Chord({Note::E4, Note::E5, Note::G5}, Len::_16),
+	Chord({}, Len::_16), // pause
+	Chord({}, Len::_8), // pause
+	Chord({Note::F4, Note::F5, Note::A5}, Len::_16),
+	Chord({}, Len::_16), // pause
+	Chord({}, Len::_8), // pause
+	Chord({Note::D4, Note::D5, Note::F5}, Len::_8),
+	Chord({Note::E4, Note::E5, Note::G5}, Len::_16),
+	Chord({}, Len::_16), // pause
+	// ========
+	Chord({}, Len::_8), // pause
+	Chord({Note::C4, Note::G4, Note::E5}, Len::_4),
+	Chord({Note::G3, Note::E4, Note::C5}, Len::_8),
+	Chord({Note::B3, Note::F4, Note::D5}, Len::_8),
+	Chord({Note::G3, Note::D4, Note::G4}, Len::_4),
+	Chord({Note::G3, Note::D4, Note::G4}, Len::_8)
 };
+
+// // blocking way of playing sounds: nothing else can be done while a sound is played
+// void gFifthSym() {
+// 		Buzzer::play(Sound::create(Note::Pause, Len::_8));
+// 		Buzzer::play(Sound::create(Note::G4, Len::_8));
+// 		Buzzer::play(Sound::create(Note::G4, Len::_8));
+// 		Buzzer::play(Sound::create(Note::G4, Len::_8));
+// // ----
+// 		Buzzer::play(Sound::create(Note::Es4, Len::_2));
+// // ----
+// 		Buzzer::play(Sound::create(Note::Pause, Len::_8));
+// 		Buzzer::play(Sound::create(Note::F4, Len::_8));
+// 		Buzzer::play(Sound::create(Note::F4, Len::_8));
+// 		Buzzer::play(Sound::create(Note::F4, Len::_8));
+// // ----
+// 		Buzzer::play(Sound::create(Note::D4, Len::_2));
+// // ----
+// 		Buzzer::play(Sound::create(Note::Pause, Len::_8));
+// 		Buzzer::play(Sound::create(Note::G4, Len::_8));
+// 		Buzzer::play(Sound::create(Note::G4, Len::_8));
+// 		Buzzer::play(Sound::create(Note::G4, Len::_8));
+// // ----
+// 		Buzzer::play(Sound::create(Note::Es4, Len::_8));
+// 		Buzzer::play(Sound::create(Note::As4, Len::_8));
+// 		Buzzer::play(Sound::create(Note::As4, Len::_8));
+// 		Buzzer::play(Sound::create(Note::As4, Len::_8));
+// // ----
+// 		Buzzer::play(Sound::create(Note::G4, Len::_8));
+// 		Buzzer::play(Sound::create(Note::Es5, Len::_8));
+// 		Buzzer::play(Sound::create(Note::Es5, Len::_8));
+// 		Buzzer::play(Sound::create(Note::Es5, Len::_8));
+// // ----
+// 		Buzzer::play(Sound::create(Note::C5, Len::_2));
+// // ----
+// 		Buzzer::play(Sound::create(Note::Pause, Len::_8));
+// 		Buzzer::play(Sound::create(Note::G4, Len::_8));
+// 		Buzzer::play(Sound::create(Note::G4, Len::_8));
+// 		Buzzer::play(Sound::create(Note::G4, Len::_8));
+// // ----
+// 		Buzzer::play(Sound::create(Note::D4, Len::_8));
+// 		Buzzer::play(Sound::create(Note::As4, Len::_8));
+// 		Buzzer::play(Sound::create(Note::As4, Len::_8));
+// 		Buzzer::play(Sound::create(Note::As4, Len::_8));
+// // ----
+// 		Buzzer::play(Sound::create(Note::G4, Len::_8));
+// 		Buzzer::play(Sound::create(Note::F5, Len::_8));
+// 		Buzzer::play(Sound::create(Note::F5, Len::_8));
+// 		Buzzer::play(Sound::create(Note::F5, Len::_8));
+// // ----
+// 		Buzzer::play(Sound::create(Note::D5, Len::_2));
+// // ----
+// 		Buzzer::play(Sound::create(Note::Pause, Len::_8));
+// 		Buzzer::play(Sound::create(Note::G5, Len::_8));
+// 		Buzzer::play(Sound::create(Note::G5, Len::_8));
+// 		Buzzer::play(Sound::create(Note::F5, Len::_8));
+// // ----
+// 		Buzzer::play(Sound::create(Note::Es5, Len::_2));
+// // ----
+// 		Buzzer::play(Sound::create(Note::Pause, Len::_8));
+// 		Buzzer::play(Sound::create(Note::G5, Len::_8));
+// 		Buzzer::play(Sound::create(Note::G5, Len::_8));
+// 		Buzzer::play(Sound::create(Note::F5, Len::_8));
+// // ----
+// 		Buzzer::play(Sound::create(Note::Es5, Len::_2));
+// // ----
+// 		Buzzer::play(Sound::create(Note::Pause, Len::_8));
+// 		Buzzer::play(Sound::create(Note::G5, Len::_8));
+// 		Buzzer::play(Sound::create(Note::G5, Len::_8));
+// 		Buzzer::play(Sound::create(Note::F5, Len::_8));
+// // ----
+// 		Buzzer::play(Sound::create(Note::Es5, Len::_8));
+// 		Buzzer::play(Sound::create(Note::Pause, Len::_8));
+// 		Buzzer::play(Sound::create(Note::Pause, Len::_4));
+// // ----
+// 		Buzzer::play(Sound::create(Note::C5, Len::_8));
+// 		Buzzer::play(Sound::create(Note::Pause, Len::_8));
+// 		Buzzer::play(Sound::create(Note::Pause, Len::_4));
+// // ----
+// 		Buzzer::play(Sound::create(Note::G5, Len::_2));
+// };
 
